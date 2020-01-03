@@ -25,7 +25,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-npm-deps-{{ checksum "package.json" }}
 
       - persist_to_workspace:
           root: ~/repo
