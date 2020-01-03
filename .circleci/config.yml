@@ -6,7 +6,7 @@ defaults: &defaults
     - image: circleci/node:8.9.1
 
 jobs:
-  test:
+  build:
     <<: *defaults  
     steps:
       - checkout
@@ -30,3 +30,10 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
