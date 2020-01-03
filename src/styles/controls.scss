@@ -1,0 +1,27 @@
+.controls {
+    text-align: left;
+    height: 26px;
+    position: relative;
+    top: 4px;
+    left: 4px;
+
+    .consoleCtrl {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        margin: 0 3px;
+        border-radius: 50%;
+    }
+
+    .close {
+        background: #FC5B57;
+    }
+
+    .minimize {
+        background: #E5BF3C;
+    }
+
+    .maximize {
+        background: #57C038;
+    }
+}
