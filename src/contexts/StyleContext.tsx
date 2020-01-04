@@ -1,20 +1,21 @@
-import * as React from "react"
-import * as style from "../index.scss"
+import * as React from 'react';
+import * as style from '../index.scss';
 
 
-export const StyleContext = React.createContext(null)
+export const StyleContext = React.createContext(null);
 
 
 export const StyleContextProvider = (props: any) => {
+  const { children } = props;
 
-    return (
-        <StyleContext.Provider value={style.default}>
-            {props.children}
-        </StyleContext.Provider>
-    )
-}
+  return (
+    <StyleContext.Provider value={style.default}>
+      {children}
+    </StyleContext.Provider>
+  );
+};
 
 export default {
-    StyleContext,
-    StyleContextProvider
-}
+  StyleContext,
+  StyleContextProvider,
+};

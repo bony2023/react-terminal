@@ -1,11 +1,13 @@
-import * as React from "react"
-import { StyleContextProvider } from "./StyleContext"
+import * as React from 'react';
+import { StyleContextProvider } from './StyleContext';
 
 
 export default function ContextProvider(props: any) {
-    return (
-        <StyleContextProvider>
-            {props.children}
-        </StyleContextProvider>
-    )
+  const { children } = props;
+
+  return (
+    <StyleContextProvider>
+      {children}
+    </StyleContextProvider>
+  );
 }

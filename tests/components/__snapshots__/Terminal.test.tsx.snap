@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Terminal renders correctly 1`] = `
+<div>
+  <div>
+    <div
+      className="undefined undefined"
+    />
+    <div
+      className="undefined undefined"
+    />
+    <div
+      className="undefined undefined"
+    />
+  </div>
+  <div />
+</div>
+`;

@@ -1,23 +1,20 @@
-import * as React from 'react'
-import { StyleContext } from "../contexts/StyleContext"
+import * as React from 'react';
+import { StyleContext } from '../contexts/StyleContext';
 
 
 export default function Controls(props: any) {
-    const style = React.useContext(StyleContext)
+  const style = React.useContext(StyleContext) || Object;
+  const { controls } = props;
 
-    let controls = props.controls.map((control: string, index: number) => {
-        return (
-            <div key={index} className={`${style.consoleCtrl} ${style[control]}`}></div>
-        )
-    })
+  const controlButtons = controls.map((control: string) => <div key={control} className={`${style.consoleCtrl} ${style[control]}`} />);
 
-    return (
-        <div className={style.controls}>
-            {controls}
-        </div>
-    )
+  return (
+    <div className={style.controls}>
+      {controlButtons}
+    </div>
+  );
 }
 
 Controls.defaultProps = {
-    controls: ["close", "minimize", "maximize"]
-}
+  controls: ['close', 'minimize', 'maximize'],
+};
