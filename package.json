@@ -34,6 +34,8 @@
   },
   "homepage": "https://github.com/bony2023/react-terminal#readme",
   "devDependencies": {
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.25",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
@@ -41,17 +43,18 @@
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "codecov": "^3.6.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "jest-transform-css": "^2.0.0",
     "node-sass": "^4.13.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "rollup": "^1.27.14",
     "rollup-plugin-postcss": "^2.0.3",
@@ -69,9 +72,17 @@
     "react-dom": "^16.12.0"
   },
   "jest": {
+    "setupFiles": [
+      "<rootDir>/tests/setupTests.ts"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "transform": {
-      "^.+\\.tsx?$": "ts-jest",
-      ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "ts",

@@ -46,6 +46,15 @@
                 "ts": "never",
                 "tsx": "never"
             }
+        ],
+        "import/no-unresolved": [
+            "error",
+            {
+                "ignore": [
+                    "react",
+                    "react-dom"
+                ]
+            }
         ]
     },
     "settings": {

@@ -1,18 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Terminal renders correctly 1`] = `
-<div>
-  <div>
+<div
+  className="terminal"
+>
+  <div
+    className="controls"
+  >
     <div
-      className="undefined undefined"
+      className="consoleCtrl close"
     />
     <div
-      className="undefined undefined"
+      className="consoleCtrl minimize"
     />
     <div
-      className="undefined undefined"
+      className="consoleCtrl maximize"
     />
   </div>
-  <div />
+  <div
+    className="editor"
+  />
 </div>
 `;

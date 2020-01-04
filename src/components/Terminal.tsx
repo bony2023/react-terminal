@@ -6,7 +6,7 @@ import Editor from './Editor';
 
 
 export default function Terminal(props: any) {
-  const style = React.useContext(StyleContext) || Object;
+  const style = React.useContext(StyleContext);
   const { controls, editor } = props;
 
   return (

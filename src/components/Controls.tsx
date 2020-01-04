@@ -3,7 +3,7 @@ import { StyleContext } from '../contexts/StyleContext';
 
 
 export default function Controls(props: any) {
-  const style = React.useContext(StyleContext) || Object;
+  const style = React.useContext(StyleContext);
   const { controls } = props;
 
   const controlButtons = controls.map((control: string) => <div key={control} className={`${style.consoleCtrl} ${style[control]}`} />);
