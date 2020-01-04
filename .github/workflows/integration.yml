@@ -16,9 +16,7 @@ jobs:
           path: ~/.npm 
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            ${{ runner.os }}-node
       - run: yarn install
       - run: yarn build
 
