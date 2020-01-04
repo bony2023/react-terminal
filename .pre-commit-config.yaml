@@ -1,4 +1,9 @@
--   repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 'v6.8.0'
-    hooks:
-    -   id: eslint
+- repo: https://github.com/pre-commit/mirrors-eslint
+  rev: 'v6.8.0'
+  hooks:
+  - id: eslint
+
+- repo: https://github.com/prettier/prettier
+  rev: 'v1.15.0'
+  hooks:
+    - id: prettier

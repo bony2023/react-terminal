@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { StyleContext } from '../contexts/StyleContext';
-
+import * as React from "react";
+import { StyleContext } from "../contexts/StyleContext";
 
 export default function Controls(props: any) {
   const style = React.useContext(StyleContext);
@@ -8,16 +7,19 @@ export default function Controls(props: any) {
   const { controlButtonLabels } = props;
   const { showControlButtons } = props;
 
-  const controlButtons = showControlButtons ? controlButtonLabels.map((buttonLabel: string) => <div key={buttonLabel} className={`${style.consoleCtrl} ${style[buttonLabel]}`} />) : null;
+  const controlButtons = showControlButtons
+    ? controlButtonLabels.map((buttonLabel: string) => (
+        <div
+          key={buttonLabel}
+          className={`${style.consoleCtrl} ${style[buttonLabel]}`}
+        />
+      ))
+    : null;
 
-  return (
-    <div className={style.controls}>
-      {controlButtons}
-    </div>
-  );
+  return <div className={style.controls}>{controlButtons}</div>;
 }
 
 Controls.defaultProps = {
   showControlButtons: true,
-  controlButtonLabels: ['close', 'minimize', 'maximize'],
+  controlButtonLabels: ["close", "minimize", "maximize"]
 };

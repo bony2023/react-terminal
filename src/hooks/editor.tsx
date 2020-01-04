@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { StyleContext } from '../contexts/StyleContext';
-
+import * as React from "react";
+import { StyleContext } from "../contexts/StyleContext";
 
 export const useCurrentLine = (consoleFocused: boolean) => {
   const style = React.useContext(StyleContext);
@@ -15,14 +14,12 @@ export const useCurrentLine = (consoleFocused: boolean) => {
 
       setCaretSelected(consoleFocused);
     },
-    [consoleFocused],
+    [consoleFocused]
   );
 
   const currentLine = (
     <>
-      <span>
-        &gt;&gt;&gt;
-      </span>
+      <span>&gt;&gt;&gt;</span>
       <div
         className={style.editArea}
         contentEditable
@@ -44,5 +41,5 @@ export const useCurrentLine = (consoleFocused: boolean) => {
 };
 
 export default {
-  useCurrentLine,
+  useCurrentLine
 };

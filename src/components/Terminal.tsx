@@ -1,9 +1,8 @@
-import * as React from 'react';
-import { StyleContext } from '../contexts/StyleContext';
+import * as React from "react";
+import { StyleContext } from "../contexts/StyleContext";
 
-import Controls from './Controls';
-import Editor from './Editor';
-
+import Controls from "./Controls";
+import Editor from "./Editor";
 
 export default function Terminal(props: any) {
   const [consoleFocused, setConsoleFocused] = React.useState(true);
@@ -23,15 +22,12 @@ export default function Terminal(props: any) {
     >
       <div className={`${style.terminal}`}>
         <Controls consoleFocused={consoleFocused} {...controls} />
-        <Editor
-          consoleFocused={consoleFocused}
-          {...editor}
-        />
+        <Editor consoleFocused={consoleFocused} {...editor} />
       </div>
     </div>
   );
 }
 
 Terminal.defaultProps = {
-  theme: 'light',
+  theme: "light"
 };

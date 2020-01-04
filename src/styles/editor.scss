@@ -1,120 +1,120 @@
 .editor {
-    text-align: left;
-    height: calc(100% - 46px);
-    padding: 10px 15px;
-    overflow: auto;
+  text-align: left;
+  height: calc(100% - 46px);
+  padding: 10px 15px;
+  overflow: auto;
+  outline: none;
+  font-family: "Source Code Pro", monospace;
+  background: $light-theme-bg-color;
+  font-size: 18px;
+  line-height: 22px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  @include themed() {
+    background: t("background");
+  }
+
+  .editArea {
+    display: inline-block;
+    width: 94%;
+    height: 20px;
     outline: none;
-    font-family: 'Source Code Pro', monospace;
-    background: $light-theme-bg-color;
+    border: none;
+    background: inherit;
+    color: transparent;
+    text-shadow: 0 0 0 $light-theme-color;
     font-size: 18px;
-    line-height: 22px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    line-height: 20px;
+    white-space: nowrap;
 
     @include themed() {
-      background: t('background');
+      text-shadow: 0 0 0 t("color");
     }
 
-    .editArea {
-        display: inline-block;
-        width: 94%;
+    br {
+      display: none;
+    }
+
+    .caret {
+      position: relative;
+      -webkit-animation: blink 0.75s ease-in-out infinite;
+      -moz-animation: blink 0.75s ease-in-out infinite;
+      -o-animation: blink 0.75s ease-in-out infinite;
+      -ms-animation: blink 0.75s ease-in-out infinite;
+      animation: blink 0.75s ease-in-out infinite;
+
+      .caretAfter {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -15px;
+        width: 10px;
         height: 20px;
-        outline: none;
-        border: none;
-        background: inherit;
-        color: transparent;
-        text-shadow: 0 0 0 $light-theme-color;
-        font-size: 18px;
-        line-height: 20px;
-        white-space: nowrap;
+        background: $light-theme-color;
+        z-index: 10;
 
         @include themed() {
-          text-shadow: 0 0 0 t('color');
+          background: t("color");
         }
+      }
 
-        br {
-            display:none;
+      @-moz-keyframes blink {
+        0% {
+          opacity: 0;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+          filter: alpha(opacity=0);
         }
-
-        .caret {
-            position: relative;
-            -webkit-animation: blink 0.75s ease-in-out infinite;
-            -moz-animation: blink 0.75s ease-in-out infinite;
-            -o-animation: blink 0.75s ease-in-out infinite;
-            -ms-animation: blink 0.75s ease-in-out infinite;
-            animation: blink 0.75s ease-in-out infinite;
-
-            .caretAfter {
-                content: "";
-                position: absolute;
-                top: 0;
-                right: -15px;
-                width: 10px;
-                height: 20px;
-                background: $light-theme-color;
-                z-index: 10;
-
-                @include themed() {
-                  background: t('color');
-                }
-            }
-
-            @-moz-keyframes blink {
-                0% {
-                  opacity: 0;
-                  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                  filter: alpha(opacity=0);
-                }
-                100% {
-                  opacity: 1;
-                  -ms-filter: none;
-                  filter: none;
-                }
-              }
-              @-webkit-keyframes blink {
-                0% {
-                  opacity: 0;
-                  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                  filter: alpha(opacity=0);
-                }
-                100% {
-                  opacity: 1;
-                  -ms-filter: none;
-                  filter: none;
-                }
-              }
-              @-o-keyframes blink {
-                0% {
-                  opacity: 0;
-                  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                  filter: alpha(opacity=0);
-                }
-                100% {
-                  opacity: 1;
-                  -ms-filter: none;
-                  filter: none;
-                }
-              }
-              @keyframes blink {
-                0% {
-                  opacity: 0;
-                  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                  filter: alpha(opacity=0);
-                }
-                100% {
-                  opacity: 1;
-                  -ms-filter: none;
-                  filter: none;
-                }
-            }
+        100% {
+          opacity: 1;
+          -ms-filter: none;
+          filter: none;
         }
+      }
+      @-webkit-keyframes blink {
+        0% {
+          opacity: 0;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+          filter: alpha(opacity=0);
+        }
+        100% {
+          opacity: 1;
+          -ms-filter: none;
+          filter: none;
+        }
+      }
+      @-o-keyframes blink {
+        0% {
+          opacity: 0;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+          filter: alpha(opacity=0);
+        }
+        100% {
+          opacity: 1;
+          -ms-filter: none;
+          filter: none;
+        }
+      }
+      @keyframes blink {
+        0% {
+          opacity: 0;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+          filter: alpha(opacity=0);
+        }
+        100% {
+          opacity: 1;
+          -ms-filter: none;
+          filter: none;
+        }
+      }
     }
+  }
 
-    a {
-        color: $light-theme-anchor-color;
+  a {
+    color: $light-theme-anchor-color;
 
-        @include themed() {
-          color: t('anchorColor');
-        }
+    @include themed() {
+      color: t("anchorColor");
     }
+  }
 }
