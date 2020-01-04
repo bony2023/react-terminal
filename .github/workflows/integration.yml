@@ -29,4 +29,4 @@ jobs:
         with:
           node-version: 12
       - run: yarn install
-      - run: yarn test && codecov -t ${{secrets.CODECOV_REPO_TOKEN}}
+      - run: yarn test && ./node_modules/.bin/codecov -t ${{secrets.CODECOV_REPO_TOKEN}}
