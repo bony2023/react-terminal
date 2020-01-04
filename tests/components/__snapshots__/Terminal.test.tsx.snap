@@ -2,23 +2,50 @@
 
 exports[`Terminal renders correctly 1`] = `
 <div
-  className="terminal"
+  className="theme--light"
+  id="themeContainer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onKeyDown={[Function]}
 >
   <div
-    className="controls"
+    className="terminal"
   >
     <div
-      className="consoleCtrl close"
-    />
+      className="controls"
+    >
+      <div
+        className="consoleCtrl close"
+      />
+      <div
+        className="consoleCtrl minimize"
+      />
+      <div
+        className="consoleCtrl maximize"
+      />
+    </div>
     <div
-      className="consoleCtrl minimize"
-    />
-    <div
-      className="consoleCtrl maximize"
-    />
+      className="editor"
+    >
+      <span>
+        &gt;&gt;&gt;
+      </span>
+      <div
+        autoCapitalize="off"
+        autoCorrect="off"
+        className="editArea"
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+      >
+        <span
+          className="caret"
+        >
+          <span
+            className="caretAfter"
+          />
+        </span>
+      </div>
+    </div>
   </div>
-  <div
-    className="editor"
-  />
 </div>
 `;

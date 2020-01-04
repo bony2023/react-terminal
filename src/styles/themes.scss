@@ -1,0 +1,32 @@
+$themes: (
+    light: (
+        background: $light-theme-bg-color,
+        toolbar: $light-theme-toolbar-color,
+        color: $light-theme-color,
+        anchorColor: $light-theme-anchor-color,
+    ),
+    dark: (
+        background: $dark-theme-bg-color,
+        toolbar: $dark-theme-toolbar-color,
+        color: $dark-theme-color,
+        anchorColor: $dark-theme-anchor-color,
+    )
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+      .theme--#{$theme} & {
+          $theme-map: () !global;
+          @each $key, $submap in $map {
+              $value: map-get(map-get($themes, $theme), '#{$key}');
+              $theme-map: map-merge($theme-map, ($key: $value)) !global;
+          }
+          @content;
+          $theme-map: null !global;
+      }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

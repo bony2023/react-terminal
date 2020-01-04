@@ -6,7 +6,7 @@ import * as ContextProvider from './contexts';
 export default function ReactTerminal(props: any): any {
   return (
     <ContextProvider.default>
-      <Terminal.default props={props} />
+      <Terminal.default {...props} />
     </ContextProvider.default>
   );
 }

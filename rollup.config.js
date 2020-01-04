@@ -30,6 +30,6 @@ export default {
       typescript: require('typescript'),
       /* eslint-enable global-require */
     }),
-    terser(),
+    process.env.NODE_ENV === 'production' ? terser() : null,
   ],
 };

@@ -14,14 +14,14 @@
     }
 
     .close {
-        background: #FC5B57;
+        background: $control-close-bg-color;
     }
 
     .minimize {
-        background: #E5BF3C;
+        background: $control-minimize-bg-color;
     }
 
     .maximize {
-        background: #57C038;
+        background: $control-maximize-bg-color;
     }
 }

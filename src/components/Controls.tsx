@@ -4,9 +4,11 @@ import { StyleContext } from '../contexts/StyleContext';
 
 export default function Controls(props: any) {
   const style = React.useContext(StyleContext);
-  const { controls } = props;
 
-  const controlButtons = controls.map((control: string) => <div key={control} className={`${style.consoleCtrl} ${style[control]}`} />);
+  const { controlButtonLabels } = props;
+  const { showControlButtons } = props;
+
+  const controlButtons = showControlButtons ? controlButtonLabels.map((buttonLabel: string) => <div key={buttonLabel} className={`${style.consoleCtrl} ${style[buttonLabel]}`} />) : null;
 
   return (
     <div className={style.controls}>
@@ -16,5 +18,6 @@ export default function Controls(props: any) {
 }
 
 Controls.defaultProps = {
-  controls: ['close', 'minimize', 'maximize'],
+  showControlButtons: true,
+  controlButtonLabels: ['close', 'minimize', 'maximize'],
 };

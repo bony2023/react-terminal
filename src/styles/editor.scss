@@ -1,28 +1,36 @@
 .editor {
+    text-align: left;
     height: calc(100% - 46px);
     padding: 10px 15px;
     overflow: auto;
     outline: none;
     font-family: 'Source Code Pro', monospace;
-    background: #022833;
-    color: rgb(130, 147, 139);
+    background: $light-theme-bg-color;
     font-size: 18px;
     line-height: 22px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
-    .edit-line {
+    @include themed() {
+      background: t('background');
+    }
+
+    .editArea {
         display: inline-block;
         width: 94%;
-        height: 22px;
+        height: 20px;
         outline: none;
         border: none;
         background: inherit;
         color: transparent;
-        text-shadow: 0 0 0 rgb(130, 147, 139);
+        text-shadow: 0 0 0 $light-theme-color;
         font-size: 18px;
-        line-height: 22px;
+        line-height: 20px;
         white-space: nowrap;
+
+        @include themed() {
+          text-shadow: 0 0 0 t('color');
+        }
 
         br {
             display:none;
@@ -36,14 +44,19 @@
             -ms-animation: blink 0.75s ease-in-out infinite;
             animation: blink 0.75s ease-in-out infinite;
 
-            .caret-after {
+            .caretAfter {
                 content: "";
                 position: absolute;
                 top: 0;
+                right: -15px;
                 width: 10px;
                 height: 20px;
-                background: #fff;
+                background: $light-theme-color;
                 z-index: 10;
+
+                @include themed() {
+                  background: t('color');
+                }
             }
 
             @-moz-keyframes blink {
@@ -98,6 +111,10 @@
     }
 
     a {
-        color: white;
+        color: $light-theme-anchor-color;
+
+        @include themed() {
+          color: t('anchorColor');
+        }
     }
 }
