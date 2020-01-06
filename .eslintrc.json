@@ -45,7 +45,9 @@
     "jsx-a11y/aria-role": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "quotes": [2, "double", { "avoidEscape": true }],
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "indent": "off",
+    "react/jsx-indent": "off"
   },
   "settings": {
     "import/resolver": {

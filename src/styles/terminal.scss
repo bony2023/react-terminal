@@ -1,4 +1,4 @@
-#themeContainer {
+#terminalContainer {
   height: 100%;
 }
 
@@ -7,8 +7,8 @@
   width: 100%;
   margin: auto;
   border-radius: 5px;
-  color: $light-theme-color;
-  background: $light-theme-toolbar-color;
+  color: var(--light-theme-color);
+  background: var(--light-theme-toolbar-color);
 
   @include themed() {
     color: t("color");

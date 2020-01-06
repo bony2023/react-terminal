@@ -3,10 +3,7 @@
 exports[`Terminal renders correctly 1`] = `
 <div
   className="theme--light"
-  id="themeContainer"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onKeyDown={[Function]}
+  id="terminalContainer"
 >
   <div
     className="terminal"
@@ -27,16 +24,16 @@ exports[`Terminal renders correctly 1`] = `
     <div
       className="editor"
     >
-      <span>
+      
+      <span
+        className="prompt"
+      >
         &gt;&gt;&gt;
       </span>
       <div
-        autoCapitalize="off"
-        autoCorrect="off"
-        className="editArea"
-        contentEditable={true}
-        suppressContentEditableWarning={true}
+        className="lineText"
       >
+        
         <span
           className="caret"
         >

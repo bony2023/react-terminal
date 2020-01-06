@@ -1,15 +1,15 @@
 $themes: (
   light: (
-    background: $light-theme-bg-color,
-    toolbar: $light-theme-toolbar-color,
-    color: $light-theme-color,
-    anchorColor: $light-theme-anchor-color
+    background: var(--light-theme-bg-color),
+    toolbar: var(--light-theme-toolbar-color),
+    color: var(--light-theme-color),
+    anchorColor: var(--light-theme-anchor-colo) r
   ),
   dark: (
-    background: $dark-theme-bg-color,
-    toolbar: $dark-theme-toolbar-color,
-    color: $dark-theme-color,
-    anchorColor: $dark-theme-anchor-color
+    background: var(--dark-theme-bg-color),
+    toolbar: var(--dark-theme-toolbar-color),
+    color: var(--dark-theme-color),
+    anchorColor: var(--dark-theme-anchor-colo) r
   )
 );
 

@@ -3,7 +3,7 @@
   height: 26px;
   position: relative;
   top: 4px;
-  left: 4px;
+  margin-left: 4px;
 
   .consoleCtrl {
     display: inline-block;
@@ -11,17 +11,18 @@
     height: 13px;
     margin: 0 3px;
     border-radius: 50%;
+    background: var(--control-default-bg-color);
   }
 
   .close {
-    background: $control-close-bg-color;
+    background: var(--control-close-bg-color);
   }
 
   .minimize {
-    background: $control-minimize-bg-color;
+    background: var(--control-minimize-bg-color);
   }
 
   .maximize {
-    background: $control-maximize-bg-color;
+    background: var(--control-maximize-bg-color);
   }
 }

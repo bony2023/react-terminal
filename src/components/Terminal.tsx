@@ -1,33 +1,41 @@
 import * as React from "react";
 import { StyleContext } from "../contexts/StyleContext";
+import { useClickOutsideEvent } from "../hooks/terminal";
 
 import Controls from "./Controls";
 import Editor from "./Editor";
 
 export default function Terminal(props: any) {
+  const wrapperRef = React.useRef(null);
   const [consoleFocused, setConsoleFocused] = React.useState(true);
   const style = React.useContext(StyleContext);
 
+  useClickOutsideEvent(wrapperRef, setConsoleFocused);
+
   // Get all props destructively
-  const { controls, editor } = props;
-  const { theme } = props;
+  const { theme, commands, defaultErrorMessage, controls, editor } = props;
 
   return (
     <div
-      onClick={() => setConsoleFocused(true)}
-      onKeyDown={() => setConsoleFocused(true)}
-      onBlur={() => setConsoleFocused(false)}
-      id={style.themeContainer}
+      ref={wrapperRef}
+      id={style.terminalContainer}
       className={style[`theme--${theme}`]}
     >
       <div className={`${style.terminal}`}>
         <Controls consoleFocused={consoleFocused} {...controls} />
-        <Editor consoleFocused={consoleFocused} {...editor} />
+        <Editor
+          consoleFocused={consoleFocused}
+          commands={commands}
+          defaultErrorMessage={defaultErrorMessage}
+          {...editor}
+        />
       </div>
     </div>
   );
 }
 
 Terminal.defaultProps = {
-  theme: "light"
+  theme: "light",
+  commands: {},
+  defaultErrorMessage: "not found!"
 };

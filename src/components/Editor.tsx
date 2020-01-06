@@ -1,11 +1,48 @@
 import * as React from "react";
 import { StyleContext } from "../contexts/StyleContext";
-import { useCurrentLine } from "../hooks/editor";
+import {
+  useCurrentLine,
+  useBufferedContent,
+  useScrollToBottom
+} from "../hooks/editor";
 
 export default function Editor(props: any) {
+  const wrapperRef = React.useRef(null);
   const style = React.useContext(StyleContext);
-  const { consoleFocused } = props;
-  const currentLine = useCurrentLine(consoleFocused);
+  const [bufferedContent, setBufferedContent] = React.useState("");
 
-  return <div className={style.editor}>{currentLine}</div>;
+  const { consoleFocused, prompt, commands, defaultErrorMessage } = props;
+
+  const [
+    currentLine,
+    currentText,
+    setCurrentText,
+    processCurrentLine,
+    setProcessCurrentLine
+  ] = useCurrentLine(consoleFocused, prompt);
+
+  useBufferedContent(
+    processCurrentLine,
+    setProcessCurrentLine,
+    prompt,
+    currentText,
+    setCurrentText,
+    bufferedContent,
+    setBufferedContent,
+    commands,
+    defaultErrorMessage
+  );
+
+  useScrollToBottom(bufferedContent, wrapperRef);
+
+  return (
+    <div ref={wrapperRef} className={style.editor}>
+      {bufferedContent}
+      {currentLine}
+    </div>
+  );
 }
+
+Editor.defaultProps = {
+  prompt: ">>>"
+};

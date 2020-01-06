@@ -3,7 +3,7 @@
     "declaration": true,
     "declarationDir": "./dist",
     "module": "es6",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "outDir": "./dist",
     "target": "es5",
     "jsx": "react",
