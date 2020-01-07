@@ -18,8 +18,3 @@ export default function Controls(props: any) {
 
   return <div className={style.controls}>{controlButtons}</div>;
 }
-
-Controls.defaultProps = {
-  showControlButtons: true,
-  controlButtonLabels: ["close", "minimize", "maximize"]
-};

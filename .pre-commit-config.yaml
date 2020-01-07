@@ -2,3 +2,11 @@
   rev: 'v6.8.0'
   hooks:
   - id: eslint
+
+- repo: local
+  hooks:
+  - id: test
+    name: run tests
+    entry: yarn test -u && git add . && git commit -m "Adding snapshot files"
+    language: system
+    stages: [push]

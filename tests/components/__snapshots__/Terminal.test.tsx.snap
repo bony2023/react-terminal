@@ -33,7 +33,11 @@ exports[`Terminal renders correctly 1`] = `
       <div
         className="lineText"
       >
-        
+        <span
+          className="preWhiteSpace"
+        >
+          
+        </span>
         <span
           className="caret"
         >

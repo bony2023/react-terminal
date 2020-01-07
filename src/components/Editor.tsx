@@ -47,7 +47,3 @@ export default function Editor(props: any) {
     </div>
   );
 }
-
-Editor.defaultProps = {
-  prompt: ">>>"
-};
