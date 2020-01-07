@@ -15,6 +15,7 @@ export default function Editor(props: any) {
     consoleFocused,
     prompt,
     commands,
+    welcomeMessage,
     errorMessage
   } = props;
 
@@ -42,6 +43,7 @@ export default function Editor(props: any) {
 
   return (
     <div ref={wrapperRef} className={style.editor}>
+      {welcomeMessage}
       {bufferedContent}
       {currentLine}
     </div>

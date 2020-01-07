@@ -25,6 +25,7 @@ exports[`Terminal renders correctly 1`] = `
       className="editor"
     >
       
+      
       <span
         className="prompt"
       >

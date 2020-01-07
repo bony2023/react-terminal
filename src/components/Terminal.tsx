@@ -20,6 +20,7 @@ export default function Terminal(props: any) {
     controlButtonLabels,
     prompt,
     commands,
+    welcomeMessage,
     errorMessage
   } = props;
 
@@ -39,6 +40,7 @@ export default function Terminal(props: any) {
           consoleFocused={consoleFocused}
           prompt={prompt}
           commands={commands}
+          welcomeMessage={welcomeMessage}
           errorMessage={errorMessage}
         />
       </div>
@@ -52,6 +54,7 @@ Terminal.propTypes = {
   controlButtonLabels: PropTypes.arrayOf(PropTypes.string),
   prompt: PropTypes.string,
   commands: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.func])),
+  welcomeMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   errorMessage: PropTypes.string
 };
 
@@ -61,5 +64,6 @@ Terminal.defaultProps = {
   controlButtonLabels: ["close", "minimize", "maximize"],
   prompt: ">>>",
   commands: {},
+  welcomeMessage: "",
   errorMessage: "not found!",
 };
