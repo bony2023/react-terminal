@@ -9,4 +9,5 @@
     name: run tests
     entry: yarn test -u && git add . && git commit -m "Adding snapshot files"
     language: system
+    types: []
     stages: [push]
