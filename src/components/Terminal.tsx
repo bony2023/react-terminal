@@ -13,7 +13,13 @@ export default function Terminal(props: any) {
   useClickOutsideEvent(wrapperRef, setConsoleFocused);
 
   // Get all props destructively
-  const { theme, commands, defaultErrorMessage, controls, editor } = props;
+  const {
+    theme,
+    commands,
+    errorMessage,
+    controls,
+    editor
+  } = props;
 
   return (
     <div
@@ -26,7 +32,7 @@ export default function Terminal(props: any) {
         <Editor
           consoleFocused={consoleFocused}
           commands={commands}
-          defaultErrorMessage={defaultErrorMessage}
+          errorMessage={errorMessage}
           {...editor}
         />
       </div>
@@ -37,5 +43,5 @@ export default function Terminal(props: any) {
 Terminal.defaultProps = {
   theme: "light",
   commands: {},
-  defaultErrorMessage: "not found!"
+  errorMessage: "not found!"
 };

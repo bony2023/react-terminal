@@ -22,8 +22,7 @@ export const useEditorInput = (
     if (event.key === "Backspace") {
       nextInput = editorInput.slice(0, -1);
     } else {
-      nextInput =
-        event.key && event.key.length === 1
+      nextInput = event.key && event.key.length === 1
           ? editorInput + event.key
           : editorInput;
     }
@@ -58,7 +57,7 @@ export const useCurrentLine = (consoleFocused: boolean, prompt: string) => {
     <>
       <span className={style.prompt}>{prompt}</span>
       <div className={style.lineText}>
-        {editorInput}
+        <span className={style.preWhiteSpace}>{editorInput}</span>
         {consoleFocused ? (
           <span className={style.caret}>
             <span className={style.caretAfter} />
@@ -86,7 +85,7 @@ export const useBufferedContent = (
   bufferedContent: any,
   setBufferedContent: any,
   commands: any,
-  defaultErrorMessage: any
+  errorMessage: any
 ) => {
   const style = React.useContext(StyleContext);
 
@@ -96,23 +95,32 @@ export const useBufferedContent = (
         return;
       }
 
-      const command = commands[currentText];
-      // eslint-disable-next-line no-nested-ternary
-      const output = currentText
-        ? command
-          ? typeof command === "function"
-            ? command()
-            : command
-          : typeof defaultErrorMessage === "function"
-            ? defaultErrorMessage()
-            : defaultErrorMessage
-        : "";
+      const [command, ...rest] = currentText.trim().split(" ");
+      let output = "";
+
+      if (currentText) {
+        const commandArguments = rest.join(" ");
+
+        if (command && commands[command]) {
+          const executor = commands[command];
+
+          if (typeof executor === "function") {
+            output = executor(commandArguments);
+          } else {
+            output = executor;
+          }
+        } else if (typeof errorMessage === "function") {
+          output = errorMessage(commandArguments);
+        } else {
+          output = errorMessage;
+        }
+      }
 
       const nextBufferedContent = (
         <>
           {bufferedContent}
           <span className={style.prompt}>{prompt}</span>
-          <span className={style.lineText}>{currentText}</span>
+          <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
           {output ? (
             <span>
               <br />
@@ -131,12 +139,12 @@ export const useBufferedContent = (
   );
 };
 
-export const useScrollToBottom = (bufferedContent: any, wrapperRef: any) => {
+export const useScrollToBottom = (changesToWatch: any, wrapperRef: any) => {
   React.useEffect(
     () => {
       // eslint-disable-next-line no-param-reassign
       wrapperRef.current.scrollTop = wrapperRef.current.scrollHeight;
     },
-    [bufferedContent]
+    [changesToWatch]
   );
 };

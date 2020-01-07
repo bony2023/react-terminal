@@ -11,7 +11,12 @@ export default function Editor(props: any) {
   const style = React.useContext(StyleContext);
   const [bufferedContent, setBufferedContent] = React.useState("");
 
-  const { consoleFocused, prompt, commands, defaultErrorMessage } = props;
+  const {
+    consoleFocused,
+    prompt,
+    commands,
+    errorMessage
+  } = props;
 
   const [
     currentLine,
@@ -30,7 +35,7 @@ export default function Editor(props: any) {
     bufferedContent,
     setBufferedContent,
     commands,
-    defaultErrorMessage
+    errorMessage
   );
 
   useScrollToBottom(bufferedContent, wrapperRef);
