@@ -1,4 +1,5 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import { StyleContext } from "../contexts/StyleContext";
 import { useClickOutsideEvent } from "../hooks/terminal";
 
@@ -44,6 +45,15 @@ export default function Terminal(props: any) {
     </div>
   );
 }
+
+Terminal.propTypes = {
+  theme: PropTypes.string,
+  showControlButtons: PropTypes.bool,
+  controlButtonLabels: PropTypes.arrayOf(PropTypes.string),
+  prompt: PropTypes.string,
+  commands: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.func])),
+  errorMessage: PropTypes.string
+};
 
 Terminal.defaultProps = {
   theme: "light",
