@@ -1,15 +1,16 @@
 import * as React from "react";
 import { StyleContext } from "../contexts/StyleContext";
+import { TerminalContext } from "../contexts/TerminalContext";
 import {
   useCurrentLine,
   useBufferedContent,
-  useScrollToBottom
+  useScrollToBottom,
 } from "../hooks/editor";
 
 export default function Editor(props: any) {
   const wrapperRef = React.useRef(null);
   const style = React.useContext(StyleContext);
-  const [bufferedContent, setBufferedContent] = React.useState("");
+  const [bufferedContent, setBufferedContent] = React.useContext(TerminalContext);
 
   const {
     consoleFocused,

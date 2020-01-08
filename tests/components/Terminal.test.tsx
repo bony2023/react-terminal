@@ -1,16 +1,18 @@
 import * as React from "react";
 import renderer from "react-test-renderer";
-import * as ContextProvider from "../../src/contexts";
+import ContextProvider from "../../src/contexts";
+import { TerminalContextProvider } from "../../src/contexts/TerminalContext";
 import Terminal from "../../src/components/Terminal";
 
 let props: any;
-const renderWrapper = () =>
-  renderer.create(
-    <ContextProvider.default>
+const renderWrapper = () => (
+  <ContextProvider>
+    <TerminalContextProvider>
       <Terminal {...props} />
-    </ContextProvider.default>
-  );
+    </TerminalContextProvider>
+  </ContextProvider>
+);
 
 it("Terminal renders correctly", () => {
-  expect(renderWrapper().toJSON()).toMatchSnapshot();
+  expect(renderer.create(renderWrapper()).toJSON()).toMatchSnapshot();
 });

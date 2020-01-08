@@ -53,8 +53,12 @@ Terminal.propTypes = {
   showControlButtons: PropTypes.bool,
   controlButtonLabels: PropTypes.arrayOf(PropTypes.string),
   prompt: PropTypes.string,
-  commands: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.func])),
-  welcomeMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  commands: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.node
+  ])),
+  welcomeMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
   errorMessage: PropTypes.string
 };
 
