@@ -1,5 +1,7 @@
 🚀 React component that renders a Terminal 🖥
 
+![Terminal png](https://react-terminal.sirv.com/static/terminal.png)
+
 [![ci status](https://github.com/bony2023/react-terminal/workflows/Build%20and%20Test/badge.svg)](https://github.com/bony2023/react-terminal/actions?query=Build+and+Test)
 [![react-terminal (latest)](https://img.shields.io/npm/v/react-terminal/latest)](https://www.npmjs.com/package/react-terminal)
 [![node](https://img.shields.io/node/v/react-terminal/latest)](https://www.npmjs.com/package/react-terminal)
