@@ -1,5 +1,4 @@
 import * as React from "react";
-import { TerminalContext } from "../contexts/TerminalContext";
 import { StyleContext } from "../contexts/StyleContext";
 
 export const useEditorInput = (
@@ -12,6 +11,8 @@ export const useEditorInput = (
     if (!consoleFocused) {
       return;
     }
+
+    event.preventDefault();
 
     if (event.key === "Enter") {
       setProcessCurrentLine(true);
