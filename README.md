@@ -1,4 +1,8 @@
-🚀 React component that renders a Terminal 🖥
+<p align="center">
+<img src="https://react-terminal.sirv.com/static/terminal-logo-text.png" data-canonical-src="https://react-terminal.sirv.com/static/terminal-logo-text.png" width="145" height="50" />
+</p>
+
+<p align="center">🚀 React component that renders a Terminal 🖥</p>
 
 ![Terminal png](https://react-terminal.sirv.com/static/terminal.png)
 
