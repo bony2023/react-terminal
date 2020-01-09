@@ -36,7 +36,7 @@ function MyComponent(props) {
 
   return (
     <ReactTerminal
-    commands={commands}
+      commands={commands}
     />
   );
 }
