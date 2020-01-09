@@ -1,21 +1,16 @@
 {
-    "compilerOptions": {
-        "declaration": true,
-        "declarationDir": "./dist",
-        "module": "es6",
-        "noImplicitAny": true,
-        "outDir": "./dist",
-        "target": "es5",
-        "jsx": "react",
-        "moduleResolution": "node"
-    },
-    "files": [
-        "src/global.d.tsx"
-    ],
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "module": "es6",
+    "noImplicitAny": false,
+    "outDir": "./dist",
+    "target": "es5",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  },
+  "files": ["src/global.d.tsx"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

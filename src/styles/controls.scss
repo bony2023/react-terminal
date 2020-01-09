@@ -1,27 +1,28 @@
 .controls {
-    text-align: left;
-    height: 26px;
-    position: relative;
-    top: 4px;
-    left: 4px;
+  text-align: left;
+  height: 26px;
+  position: relative;
+  top: 4px;
+  margin-left: 4px;
 
-    .consoleCtrl {
-        display: inline-block;
-        width: 13px;
-        height: 13px;
-        margin: 0 3px;
-        border-radius: 50%;
-    }
+  .consoleCtrl {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin: 0 3px;
+    border-radius: 50%;
+    background: var(--control-default-bg-color);
+  }
 
-    .close {
-        background: #FC5B57;
-    }
+  .close {
+    background: var(--control-close-bg-color);
+  }
 
-    .minimize {
-        background: #E5BF3C;
-    }
+  .minimize {
+    background: var(--control-minimize-bg-color);
+  }
 
-    .maximize {
-        background: #57C038;
-    }
+  .maximize {
+    background: var(--control-maximize-bg-color);
+  }
 }

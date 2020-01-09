@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Terminal renders correctly 1`] = `
+<div
+  className="theme--light"
+  id="terminalContainer"
+>
+  <div
+    className="terminal"
+  >
+    <div
+      className="controls"
+    >
+      <div
+        className="consoleCtrl close"
+      />
+      <div
+        className="consoleCtrl minimize"
+      />
+      <div
+        className="consoleCtrl maximize"
+      />
+    </div>
+    <div
+      className="editor"
+    >
+      
+      
+      <span
+        className="prompt"
+      >
+        &gt;&gt;&gt;
+      </span>
+      <div
+        className="lineText"
+      >
+        <span
+          className="preWhiteSpace"
+        >
+          
+        </span>
+        <span
+          className="caret"
+        >
+          <span
+            className="caretAfter"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

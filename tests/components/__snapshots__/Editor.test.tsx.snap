@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Editor Editor renders correctly 1`] = `
+<div
+  className="editor"
+>
+  
+  
+  <span
+    className="prompt"
+  >
+    $
+  </span>
+  <div
+    className="lineText"
+  >
+    <span
+      className="preWhiteSpace"
+    >
+      
+    </span>
+  </div>
+</div>
+`;

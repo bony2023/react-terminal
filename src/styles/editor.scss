@@ -1,103 +1,135 @@
 .editor {
-    height: calc(100% - 46px);
-    padding: 10px 15px;
-    overflow: auto;
+  text-align: left;
+  height: calc(100% - 46px);
+  padding: 10px 15px;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+  outline: none;
+  font-family: "Source Code Pro", monospace;
+  background: var(--light-theme-bg-color);
+  font-size: 18px;
+  line-height: 22px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  @include themed() {
+    background: t("background");
+  }
+
+  .editArea {
+    display: inline-block;
+    width: 94%;
+    height: 20px;
     outline: none;
-    font-family: 'Source Code Pro', monospace;
-    background: #022833;
-    color: rgb(130, 147, 139);
+    border: none;
+    background: inherit;
+    color: transparent;
+    text-shadow: 0 0 0 var(--light-theme-color);
     font-size: 18px;
-    line-height: 22px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    line-height: 20px;
+    white-space: nowrap;
 
-    .edit-line {
-        display: inline-block;
-        width: 94%;
-        height: 22px;
-        outline: none;
-        border: none;
-        background: inherit;
-        color: transparent;
-        text-shadow: 0 0 0 rgb(130, 147, 139);
-        font-size: 18px;
-        line-height: 22px;
-        white-space: nowrap;
-
-        br {
-            display:none;
-        }
-
-        .caret {
-            position: relative;
-            -webkit-animation: blink 0.75s ease-in-out infinite;
-            -moz-animation: blink 0.75s ease-in-out infinite;
-            -o-animation: blink 0.75s ease-in-out infinite;
-            -ms-animation: blink 0.75s ease-in-out infinite;
-            animation: blink 0.75s ease-in-out infinite;
-
-            .caret-after {
-                content: "";
-                position: absolute;
-                top: 0;
-                width: 10px;
-                height: 20px;
-                background: #fff;
-                z-index: 10;
-            }
-
-            @-moz-keyframes blink {
-                0% {
-                  opacity: 0;
-                  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                  filter: alpha(opacity=0);
-                }
-                100% {
-                  opacity: 1;
-                  -ms-filter: none;
-                  filter: none;
-                }
-              }
-              @-webkit-keyframes blink {
-                0% {
-                  opacity: 0;
-                  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                  filter: alpha(opacity=0);
-                }
-                100% {
-                  opacity: 1;
-                  -ms-filter: none;
-                  filter: none;
-                }
-              }
-              @-o-keyframes blink {
-                0% {
-                  opacity: 0;
-                  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                  filter: alpha(opacity=0);
-                }
-                100% {
-                  opacity: 1;
-                  -ms-filter: none;
-                  filter: none;
-                }
-              }
-              @keyframes blink {
-                0% {
-                  opacity: 0;
-                  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                  filter: alpha(opacity=0);
-                }
-                100% {
-                  opacity: 1;
-                  -ms-filter: none;
-                  filter: none;
-                }
-            }
-        }
+    @include themed() {
+      text-shadow: 0 0 0 t("color");
     }
 
-    a {
-        color: white;
+    br {
+      display: none;
     }
+  }
+
+  .prompt {
+    color: var(--prompt-color);
+  }
+
+  .lineText {
+    display: inline;
+    position: relative;
+    top: -1px;
+    margin-left: 8px;
+  }
+
+  .preWhiteSpace {
+    white-space: pre;
+  }
+
+  .caret {
+    position: relative;
+    -webkit-animation: blink 0.75s ease-in-out infinite;
+    -moz-animation: blink 0.75s ease-in-out infinite;
+    -o-animation: blink 0.75s ease-in-out infinite;
+    -ms-animation: blink 0.75s ease-in-out infinite;
+    animation: blink 0.75s ease-in-out infinite;
+
+    .caretAfter {
+      content: "";
+      position: absolute;
+      top: 2px;
+      width: 10px;
+      height: 22px;
+      background: var(--light-theme-color);
+      z-index: 10;
+
+      @include themed() {
+        background: t("color");
+      }
+    }
+
+    @-moz-keyframes blink {
+      0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+      }
+      100% {
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+      }
+    }
+    @-webkit-keyframes blink {
+      0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+      }
+      100% {
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+      }
+    }
+    @-o-keyframes blink {
+      0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+      }
+      100% {
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+      }
+    }
+    @keyframes blink {
+      0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+      }
+      100% {
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+      }
+    }
+  }
+
+  a {
+    color: var(--light-theme-anchor-color);
+
+    @include themed() {
+      color: t("anchorColor");
+    }
+  }
 }

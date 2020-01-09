@@ -1,7 +1,17 @@
+#terminalContainer {
+  height: 100%;
+}
+
 .terminal {
-    height: 100%;
-    width: 100%;
-    margin: auto;
-    border-radius: 5px;
-    background: #000;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  border-radius: 5px;
+  color: var(--light-theme-color);
+  background: var(--light-theme-toolbar-color);
+
+  @include themed() {
+    color: t("color");
+    background: t("toolbar");
+  }
 }

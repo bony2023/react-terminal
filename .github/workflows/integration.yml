@@ -1,0 +1,33 @@
+name: Build and Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm 
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+      - run: yarn install
+      - run: yarn build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install
+      - run: ./node_modules/.bin/npm-install-peers
+      - run: yarn test && ./node_modules/.bin/codecov -t ${{secrets.CODECOV_REPO_TOKEN}}
