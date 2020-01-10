@@ -43,7 +43,7 @@ function MyComponent(props) {
 
 Also make sure to wrap the main mountpoint around the `TerminalContextProvider`. This retains the state even when the component is unmounted and then mounted back:
 ```
-import { TerminalContextProvider } from "react-terminal"
+import { TerminalContextProvider } from "react-terminal";
 
 ReactDOM.render(
   <TerminalContextProvider>
