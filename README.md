@@ -56,7 +56,7 @@ ReactDOM.render(
 # Props
 | name | description | default |
 |--|--|--|
-| theme | Colour theme of the terminal | "light" |
+| theme | Colour theme of the terminal ("light"/"dark") | "light" |
 | showControlButtons | Whether to show the control buttons at the top of the terminal | true |
 | prompt | Terminal prompt | >>>
 | commands | List of commands to be provided as a key value pair where value can be either a string or callback | null
