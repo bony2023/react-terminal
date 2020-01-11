@@ -19,7 +19,7 @@ npm install --save-dev react-terminal
 ```
 OR
 ```
-yarn install --dev react-terminal
+yarn add --dev react-terminal
 ```
 
 # Usage
@@ -47,7 +47,7 @@ import { TerminalContextProvider } from "react-terminal";
 
 ReactDOM.render(
   <TerminalContextProvider>
-    <MyComponent/>
+    <App/>
   </TerminalContextProvider>,
   rootElement
 );
