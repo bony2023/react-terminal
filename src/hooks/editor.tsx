@@ -1,4 +1,6 @@
 import * as React from "react";
+import { isMobile } from "react-device-detect";
+
 import { StyleContext } from "../contexts/StyleContext";
 
 export const useEditorInput = (
@@ -14,18 +16,20 @@ export const useEditorInput = (
 
     event.preventDefault();
 
-    if (event.key === "Enter") {
+    const eventKey = event.key;
+
+    if (eventKey === "Enter") {
       setProcessCurrentLine(true);
       return;
     }
 
     let nextInput = null;
 
-    if (event.key === "Backspace") {
+    if (eventKey === "Backspace") {
       nextInput = editorInput.slice(0, -1);
     } else {
-      nextInput = event.key && event.key.length === 1
-          ? editorInput + event.key
+      nextInput = eventKey && eventKey.length === 1
+          ? editorInput + eventKey
           : editorInput;
     }
 
@@ -45,6 +49,7 @@ export const useEditorInput = (
 
 export const useCurrentLine = (consoleFocused: boolean, prompt: string) => {
   const style = React.useContext(StyleContext);
+  const mobileInputRef = React.useRef(null);
   const [editorInput, setEditorInput] = React.useState("");
   const [processCurrentLine, setProcessCurrentLine] = React.useState(false);
 
@@ -55,8 +60,37 @@ export const useCurrentLine = (consoleFocused: boolean, prompt: string) => {
     setProcessCurrentLine
   );
 
+  React.useEffect(
+    () => {
+      if (!isMobile) {
+        return;
+      }
+
+      if (consoleFocused) {
+        mobileInputRef.current.focus();
+      }
+    },
+    [consoleFocused]
+  );
+
+  const mobileInput = isMobile ? (
+    <div className={style.mobileInput}>
+      <input
+        type="text"
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck="false"
+        value={editorInput}
+        onChange={(event) => setEditorInput(event.target.value)}
+        ref={mobileInputRef}
+      />
+    </div>
+  ) : null;
+
   const currentLine = (
     <>
+      {mobileInput}
       <span className={style.prompt}>{prompt}</span>
       <div className={style.lineText}>
         <span className={style.preWhiteSpace}>{editorInput}</span>

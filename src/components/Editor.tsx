@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { StyleContext } from "../contexts/StyleContext";
 import { TerminalContext } from "../contexts/TerminalContext";
 import {
