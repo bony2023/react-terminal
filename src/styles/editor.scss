@@ -16,6 +16,12 @@
     background: t("background");
   }
 
+  .mobileInput {
+    position: absolute;
+    top: -2000px;
+    left: -2000px;
+  }
+
   .editArea {
     display: inline-block;
     width: 94%;
