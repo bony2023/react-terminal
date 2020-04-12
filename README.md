@@ -1,28 +1,43 @@
-<p align="center">
+<h1 align="center">
   <img src="https://react-terminal.sirv.com/static/terminal-logo-text.png" data-canonical-src="https://react-terminal.sirv.com/static/terminal-logo-text.png" width="145" height="50" />
-</p>
+</h1>
 
 <p align="center">🚀 React component that renders a Terminal 🖥</p>
 
 <p align="center">
-<a href="https://github.com/bony2023/react-terminal/actions?query=Build+and+Test"><img src="https://github.com/bony2023/react-terminal/workflows/Build%20and%20Test/badge.svg" data-canonical-src="https://github.com/bony2023/react-terminal/workflows/Build%20and%20Test/badge.svg"/></a>
-<a href="https://www.npmjs.com/package/react-terminal"><img src="https://img.shields.io/npm/v/react-terminal/latest" data-canonical-src="https://img.shields.io/npm/v/react-terminal/latest"/></a>
-<img src="https://img.shields.io/npm/l/react-terminal" data-canonical-src="https://img.shields.io/npm/l/react-terminal"/>
+  <a href="https://github.com/bony2023/react-terminal/actions?query=Build+and+Test"><img src="https://github.com/bony2023/react-terminal/workflows/Build%20and%20Test/badge.svg" data-canonical-src="https://github.com/bony2023/react-terminal/workflows/Build%20and%20Test/badge.svg"/></a>
+  <a href="https://www.npmjs.com/package/react-terminal"><img src="https://img.shields.io/npm/v/react-terminal/latest" data-canonical-src="https://img.shields.io/npm/v/react-terminal/latest"/></a>
+  <img src="https://img.shields.io/npm/l/react-terminal" data-canonical-src="https://img.shields.io/npm/l/react-terminal"/>
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#props">Props</a> •
+  <a href="#report-a-bug">Report a bug</a>
 </p>
 
 ![Terminal png](https://react-terminal.sirv.com/static/terminal.png)
 
-# Installation
+## Features
+- Mobile support. 📱
+- Customizable commands, prompt and error message. ✅
+- Support callbacks for commands output. 😎
+- Command history using arrow up and down. ⏪
+- Dark theme support. 🚀
+
+## Installation
 Install package with NPM or YARN and add it to your development dependencies:
 ```
 npm install --save-dev react-terminal
 ```
 OR
 ```
-yarn install --dev react-terminal
+yarn add --dev react-terminal
 ```
 
-# Usage
+## Usage
 ```
 import { ReactTerminal } from "react-terminal";
 
@@ -47,13 +62,13 @@ import { TerminalContextProvider } from "react-terminal";
 
 ReactDOM.render(
   <TerminalContextProvider>
-    <MyComponent/>
+    <App/>
   </TerminalContextProvider>,
   rootElement
 );
 ```
 
-# Props
+## Props
 | name | description | default |
 |--|--|--|
 | theme | Colour theme of the terminal (light/dark) | "light" |
@@ -63,5 +78,5 @@ ReactDOM.render(
 | welcomeMessage | A welcome message to show at the start, before the prompt begins | null
 | errorMessage | Message to show when unidentified command executed | "not found!"
 
-# Report a bug
+## Report a bug
 If you found a bug in this library, please file an GitHub issue [here](https://github.com/bony2023/react-terminal/issues).
