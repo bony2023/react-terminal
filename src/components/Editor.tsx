@@ -4,14 +4,15 @@ import { StyleContext } from "../contexts/StyleContext";
 import { TerminalContext } from "../contexts/TerminalContext";
 import {
   useCurrentLine,
-  useBufferedContent,
   useScrollToBottom,
 } from "../hooks/editor";
 
 export default function Editor(props: any) {
   const wrapperRef = React.useRef(null);
   const style = React.useContext(StyleContext);
-  const [bufferedContent, setBufferedContent] = React.useContext(TerminalContext);
+  const { bufferedContent } = React.useContext(TerminalContext);
+
+  useScrollToBottom(bufferedContent, wrapperRef);
 
   const {
     consoleFocused,
@@ -21,27 +22,12 @@ export default function Editor(props: any) {
     errorMessage
   } = props;
 
-  const [
-    currentLine,
-    currentText,
-    setCurrentText,
-    processCurrentLine,
-    setProcessCurrentLine
-  ] = useCurrentLine(consoleFocused, prompt);
-
-  useBufferedContent(
-    processCurrentLine,
-    setProcessCurrentLine,
+  const currentLine = useCurrentLine(
+    consoleFocused,
     prompt,
-    currentText,
-    setCurrentText,
-    bufferedContent,
-    setBufferedContent,
     commands,
     errorMessage
   );
-
-  useScrollToBottom(bufferedContent, wrapperRef);
 
   return (
     <div ref={wrapperRef} className={style.editor}>
