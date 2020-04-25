@@ -23,7 +23,7 @@
 ## Features
 - Mobile support. 📱
 - Customizable commands, prompt and error message. ✅
-- Support callbacks for commands output. 😎
+- Support callbacks(async/non-async) for commands output. 😎
 - Command history using arrow up and down. ⏪
 - Dark theme support. 🚀
 

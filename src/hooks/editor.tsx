@@ -72,45 +72,59 @@ export const useBufferedContent = (
         return;
       }
 
-      const [command, ...rest] = currentText.trim().split(" ");
-      let output = "";
+      const processCommand = async (text: string) => {
+        const waiting = (
+          <>
+            {bufferedContent}
+            <span className={style.prompt}>{prompt}</span>
+            <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
+            <br />
+          </>
+        );
+        setBufferedContent(waiting);
+        setCurrentText("");
 
-      if (currentText) {
-        const commandArguments = rest.join(" ");
+        const [command, ...rest] = text.trim().split(" ");
+        let output = "";
 
-        if (command && commands[command]) {
-          const executor = commands[command];
+        if (text) {
+          const commandArguments = rest.join(" ");
 
-          if (typeof executor === "function") {
-            output = executor(commandArguments);
+          if (command && commands[command]) {
+            const executor = commands[command];
+
+            if (typeof executor === "function") {
+              output = await executor(commandArguments);
+            } else {
+              output = executor;
+            }
+          } else if (typeof errorMessage === "function") {
+            output = await errorMessage(commandArguments);
           } else {
-            output = executor;
+            output = errorMessage;
           }
-        } else if (typeof errorMessage === "function") {
-          output = errorMessage(commandArguments);
-        } else {
-          output = errorMessage;
         }
-      }
 
-      const nextBufferedContent = (
-        <>
-          {bufferedContent}
-          <span className={style.prompt}>{prompt}</span>
-          <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
-          {output ? (
-            <span>
-              <br />
-              {output}
-            </span>
-          ) : null}
-          <br />
-        </>
-      );
+        const nextBufferedContent = (
+          <>
+            {bufferedContent}
+            <span className={style.prompt}>{prompt}</span>
+            <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
+            {output ? (
+              <span>
+                <br />
+                {output}
+              </span>
+            ) : null}
+            <br />
+          </>
+        );
 
-      setBufferedContent(nextBufferedContent);
-      setProcessCurrentLine(false);
-      setCurrentText("");
+        setBufferedContent(nextBufferedContent);
+        setProcessCurrentLine(false);
+      };
+
+      processCommand(currentText);
     },
     [processCurrentLine]
   );
@@ -166,12 +180,23 @@ export const useCurrentLine = (
     </div>
   ) : null;
 
-  const currentLine = (
+  const currentLine = !processCurrentLine ? (
     <>
       {mobileInput}
       <span className={style.prompt}>{prompt}</span>
       <div className={style.lineText}>
         <span className={style.preWhiteSpace}>{editorInput}</span>
+        {consoleFocused ? (
+          <span className={style.caret}>
+            <span className={style.caretAfter} />
+          </span>
+        ) : null}
+      </div>
+    </>
+  ) : (
+    <>
+      {mobileInput}
+      <div className={style.lineText}>
         {consoleFocused ? (
           <span className={style.caret}>
             <span className={style.caretAfter} />
