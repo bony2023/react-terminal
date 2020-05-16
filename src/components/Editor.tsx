@@ -15,6 +15,8 @@ export default function Editor(props: any) {
   useScrollToBottom(bufferedContent, wrapperRef);
 
   const {
+    enableInput, //get both props
+    caret,
     consoleFocused,
     prompt,
     commands,
@@ -23,10 +25,12 @@ export default function Editor(props: any) {
   } = props;
 
   const currentLine = useCurrentLine(
+    caret,  // useCurrentLine takes both props as parameters
     consoleFocused,
     prompt,
     commands,
-    errorMessage
+    errorMessage, 
+    enableInput //enableInput prop as a parameter
   );
 
   return (

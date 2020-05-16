@@ -8,7 +8,8 @@ export const useEditorInput = (
   consoleFocused: boolean,
   editorInput: string,
   setEditorInput: any,
-  setProcessCurrentLine: any
+  setProcessCurrentLine: any,
+  enableInput: boolean //enableInput parameter
 ) => {
   const { getPreviousCommand, getNextCommand } = React.useContext(TerminalContext);
 
@@ -16,7 +17,10 @@ export const useEditorInput = (
     if (!consoleFocused) {
       return;
     }
-
+    //checks the value of enableInput and returns if its false
+    if(!enableInput){
+      return;
+    }
     event.preventDefault();
 
     const eventKey = event.key;
@@ -131,17 +135,19 @@ export const useBufferedContent = (
 };
 
 export const useCurrentLine = (
+  caret: boolean,  // caret parameter 
   consoleFocused: boolean,
   prompt: string,
   commands: any,
-  errorMessage: any
+  errorMessage: any,
+  enableInput: boolean  //enableInput parameter
 ) => {
   const style = React.useContext(StyleContext);
   const { appendCommandToHistory } = React.useContext(TerminalContext);
   const mobileInputRef = React.useRef(null);
   const [editorInput, setEditorInput] = React.useState("");
   const [processCurrentLine, setProcessCurrentLine] = React.useState(false);
-
+  
   React.useEffect(
     () => {
       if (!isMobile) {
@@ -165,7 +171,7 @@ export const useCurrentLine = (
     [processCurrentLine]
   );
 
-  const mobileInput = isMobile ? (
+  const mobileInput = isMobile && enableInput? (//enableInput functionality on mobile
     <div className={style.mobileInput}>
       <input
         type="text"
@@ -186,8 +192,8 @@ export const useCurrentLine = (
       <span className={style.prompt}>{prompt}</span>
       <div className={style.lineText}>
         <span className={style.preWhiteSpace}>{editorInput}</span>
-        {consoleFocused ? (
-          <span className={style.caret}>
+        {consoleFocused && caret ? (  //if caret isn't true, caret won't be displayed
+          <span className={style.caret}> 
             <span className={style.caretAfter} />
           </span>
         ) : null}
@@ -197,7 +203,7 @@ export const useCurrentLine = (
     <>
       {mobileInput}
       <div className={style.lineText}>
-        {consoleFocused ? (
+        {consoleFocused && caret? ( //if caret isn't true, caret won't be displayed
           <span className={style.caret}>
             <span className={style.caretAfter} />
           </span>
@@ -210,7 +216,8 @@ export const useCurrentLine = (
     consoleFocused,
     editorInput,
     setEditorInput,
-    setProcessCurrentLine
+    setProcessCurrentLine,
+    enableInput //enableInput from useCurrentLine()
   );
 
   useBufferedContent(
