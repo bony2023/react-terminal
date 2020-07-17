@@ -4,7 +4,6 @@ import { isMobile } from "react-device-detect";
 import { StyleContext } from "../contexts/StyleContext";
 import { TerminalContext } from "../contexts/TerminalContext";
 
-
 export const useEditorInput = (
   consoleFocused: boolean,
   editorInput: string,
@@ -101,7 +100,6 @@ export const useBufferedContent = (
         setCurrentText("");
 
         
-
         if (text) {
           const commandArguments = rest.join(" ");
 
@@ -151,7 +149,7 @@ export const useCurrentLine = (
   prompt: string,
   commands: any,
   errorMessage: any,
-  enableInput: boolean,  //enableInput parameter
+  enableInput: boolean  //enableInput parameter
 ) => {
   const style = React.useContext(StyleContext);
   const { appendCommandToHistory } = React.useContext(TerminalContext);
@@ -206,7 +204,7 @@ export const useCurrentLine = (
         {consoleFocused && caret ? (  //if caret isn't true, caret won't be displayed
           <span className={style.caret}> 
             <span className={style.caretAfter} />
-         </span>
+          </span>
         ) : null}
       </div>
     </>
@@ -215,7 +213,7 @@ export const useCurrentLine = (
       {mobileInput}
       <div className={style.lineText}>
         {consoleFocused && caret? ( //if caret isn't true, caret won't be displayed
-          <span className={style.caret}> 
+          <span className={style.caret}>
             <span className={style.caretAfter} />
           </span>
         ) : null}
