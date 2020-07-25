@@ -77,6 +77,17 @@ export const useBufferedContent = (
       }
 
       const processCommand = async (text: string) => {
+
+        const [command, ...rest] = text.trim().split(" ");
+        let output = "";
+
+        if(command === "clear") {
+          setBufferedContent("");
+          setCurrentText("");
+          setProcessCurrentLine(false);
+          return 
+        }
+
         const waiting = (
           <>
             {bufferedContent}
@@ -88,9 +99,7 @@ export const useBufferedContent = (
         setBufferedContent(waiting);
         setCurrentText("");
 
-        const [command, ...rest] = text.trim().split(" ");
-        let output = "";
-
+        
         if (text) {
           const commandArguments = rest.join(" ");
 
