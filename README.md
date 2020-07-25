@@ -78,5 +78,10 @@ ReactDOM.render(
 | welcomeMessage | A welcome message to show at the start, before the prompt begins | null
 | errorMessage | Message to show when unidentified command executed | "not found!"
 
+## In-built commands
+| command | description |
+|--|--|
+| clear | clears the console |
+
 ## Report a bug
 If you found a bug in this library, please file an GitHub issue [here](https://github.com/bony2023/react-terminal/issues).
