@@ -3,11 +3,20 @@
 exports[`Editor Editor renders correctly 1`] = `
 <div
   className="editor"
+  style={
+    Object {
+      "background": "#fdf6e4",
+    }
+  }
 >
   
   
   <span
-    className="prompt"
+    style={
+      Object {
+        "color": "#a917a8",
+      }
+    }
   >
     $
   </span>

@@ -7,6 +7,12 @@ exports[`Terminal renders correctly 1`] = `
 >
   <div
     className="terminal"
+    style={
+      Object {
+        "background": "#d8d8d8",
+        "color": "#333333",
+      }
+    }
   >
     <div
       className="controls"
@@ -23,11 +29,20 @@ exports[`Terminal renders correctly 1`] = `
     </div>
     <div
       className="editor"
+      style={
+        Object {
+          "background": "#fdf6e4",
+        }
+      }
     >
       
       
       <span
-        className="prompt"
+        style={
+          Object {
+            "color": "#a917a8",
+          }
+        }
       >
         &gt;&gt;&gt;
       </span>
@@ -44,6 +59,11 @@ exports[`Terminal renders correctly 1`] = `
         >
           <span
             className="caretAfter"
+            style={
+              Object {
+                "background": "#333333",
+              }
+            }
           />
         </span>
       </div>
