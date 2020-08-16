@@ -18,14 +18,14 @@
   <a href="#report-a-bug">Report a bug</a>
 </p>
 
-![Terminal png](https://react-terminal.sirv.com/static/terminal.png)
+![Terminal png](https://react-terminal.sirv.com/static/terminal-dracula.png)
 
 ## Features
 - Mobile support. 📱
 - Customizable commands, prompt and error message. ✅
-- Support callbacks(async/non-async) for commands output. 😎
-- Command history using arrow up and down. ⏪
-- Dark theme support. 🚀
+- Support callbacks(async/non-async) for commands. 🔄
+- Command history using arrow up and down. 🔼
+- In-built light, dark and dracula theme. 🚀
 
 ## Installation
 Install package with NPM or YARN and add it to your development dependencies:
@@ -68,10 +68,29 @@ ReactDOM.render(
 );
 ```
 
+## Creating custom themes
+The component comes with few in-built themes: light, dark and dracula. You can create a custom themes by passing `themes` parameter in props, as follows:
+
+```
+<ReactTerminal
+  commands={commands}
+  themes={{
+    myCustomTheme: {
+      themeBGColor: "#272B36",
+      themeToolbarColor: "#DBDBDB",
+      themeColor: "#FFFEFC",
+      themePromptColor: "#a917a8"
+    }
+  }}
+  theme="myCustomTheme"
+/>
+```
+
 ## Props
 | name | description | default |
 |--|--|--|
-| theme | Colour theme of the terminal (light/dark) | "light" |
+| theme | Theme of the terminal | "light" |
+| themes | Themes object to supply custom themes | null |
 | showControlButtons | Whether to show the control buttons at the top of the terminal | true |
 | prompt | Terminal prompt | >>>
 | commands | List of commands to be provided as a key value pair where value can be either a string or callback | null

@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { StyleContext } from "../contexts/StyleContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 import { TerminalContext } from "../contexts/TerminalContext";
 import {
   useCurrentLine,
@@ -10,6 +11,7 @@ import {
 export default function Editor(props: any) {
   const wrapperRef = React.useRef(null);
   const style = React.useContext(StyleContext);
+  const themeStyles = React.useContext(ThemeContext);
   const { bufferedContent } = React.useContext(TerminalContext);
 
   useScrollToBottom(bufferedContent, wrapperRef);
@@ -34,7 +36,7 @@ export default function Editor(props: any) {
   );
 
   return (
-    <div ref={wrapperRef} className={style.editor}>
+    <div ref={wrapperRef} className={style.editor} style={{ background: themeStyles.themeBGColor }}>
       {welcomeMessage}
       {bufferedContent}
       {currentLine}

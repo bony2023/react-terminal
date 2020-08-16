@@ -6,46 +6,15 @@
   overflow-y: scroll;
   outline: none;
   font-family: "Source Code Pro", monospace;
-  background: var(--light-theme-bg-color);
   font-size: 18px;
   line-height: 22px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 
-  @include themed() {
-    background: t("background");
-  }
-
   .mobileInput {
     position: absolute;
     top: -2000px;
     left: -2000px;
-  }
-
-  .editArea {
-    display: inline-block;
-    width: 94%;
-    height: 20px;
-    outline: none;
-    border: none;
-    background: inherit;
-    color: transparent;
-    text-shadow: 0 0 0 var(--light-theme-color);
-    font-size: 18px;
-    line-height: 20px;
-    white-space: nowrap;
-
-    @include themed() {
-      text-shadow: 0 0 0 t("color");
-    }
-
-    br {
-      display: none;
-    }
-  }
-
-  .prompt {
-    color: var(--prompt-color);
   }
 
   .lineText {
@@ -73,12 +42,7 @@
       top: 2px;
       width: 10px;
       height: 22px;
-      background: var(--light-theme-color);
       z-index: 10;
-
-      @include themed() {
-        background: t("color");
-      }
     }
 
     @-moz-keyframes blink {
@@ -132,10 +96,6 @@
   }
 
   a {
-    color: var(--light-theme-anchor-color);
-
-    @include themed() {
-      color: t("anchorColor");
-    }
+    color: #1a87b5;
   }
 }

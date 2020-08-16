@@ -2,6 +2,7 @@ import * as React from "react";
 import { isMobile } from "react-device-detect";
 
 import { StyleContext } from "../contexts/StyleContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 import { TerminalContext } from "../contexts/TerminalContext";
 
 export const useEditorInput = (
@@ -69,6 +70,7 @@ export const useBufferedContent = (
 ) => {
   const { bufferedContent, setBufferedContent } = React.useContext(TerminalContext);
   const style = React.useContext(StyleContext);
+  const themeStyles = React.useContext(ThemeContext);
 
   React.useEffect(
     () => {
@@ -91,7 +93,7 @@ export const useBufferedContent = (
         const waiting = (
           <>
             {bufferedContent}
-            <span className={style.prompt}>{prompt}</span>
+            <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
             <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
             <br />
           </>
@@ -121,7 +123,7 @@ export const useBufferedContent = (
         const nextBufferedContent = (
           <>
             {bufferedContent}
-            <span className={style.prompt}>{prompt}</span>
+            <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
             <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
             {output ? (
               <span>
@@ -152,6 +154,7 @@ export const useCurrentLine = (
   enableInput: boolean  //enableInput parameter
 ) => {
   const style = React.useContext(StyleContext);
+  const themeStyles = React.useContext(ThemeContext);
   const { appendCommandToHistory } = React.useContext(TerminalContext);
   const mobileInputRef = React.useRef(null);
   const [editorInput, setEditorInput] = React.useState("");
@@ -198,12 +201,12 @@ export const useCurrentLine = (
   const currentLine = !processCurrentLine ? (
     <>
       {mobileInput}
-      <span className={style.prompt}>{prompt}</span>
+      <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
       <div className={style.lineText}>
         <span className={style.preWhiteSpace}>{editorInput}</span>
         {consoleFocused && caret ? (  //if caret isn't true, caret won't be displayed
           <span className={style.caret}> 
-            <span className={style.caretAfter} />
+            <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}
       </div>
@@ -214,7 +217,7 @@ export const useCurrentLine = (
       <div className={style.lineText}>
         {consoleFocused && caret? ( //if caret isn't true, caret won't be displayed
           <span className={style.caret}>
-            <span className={style.caretAfter} />
+            <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}
       </div>

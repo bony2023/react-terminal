@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { isMobile } from "react-device-detect";
 
 import { StyleContext } from "../contexts/StyleContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 import { useClickOutsideEvent } from "../hooks/terminal";
 
 import Controls from "./Controls";
@@ -12,6 +13,7 @@ export default function Terminal(props: any) {
   const wrapperRef = React.useRef(null);
   const [consoleFocused, setConsoleFocused] = React.useState(!isMobile);
   const style = React.useContext(StyleContext);
+  const themeStyles = React.useContext(ThemeContext);
 
   useClickOutsideEvent(wrapperRef, consoleFocused, setConsoleFocused);
 
@@ -34,7 +36,7 @@ export default function Terminal(props: any) {
       id={style.terminalContainer}
       className={style[`theme--${theme}`]}
     >
-      <div className={`${style.terminal}`}>
+      <div className={`${style.terminal}`} style={{ background: themeStyles.themeToolbarColor, color: themeStyles.themeColor }}>
         <Controls
           consoleFocused={consoleFocused}
           showControlButtons={showControlButtons}

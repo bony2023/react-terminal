@@ -8,7 +8,9 @@ export const StyleContextProvider = (props: any) => {
   const { children } = props;
 
   return (
-    <StyleContext.Provider value={styles}>{children}</StyleContext.Provider>
+    <StyleContext.Provider value={styles}>
+      {children}
+    </StyleContext.Provider>
   );
 };
 
