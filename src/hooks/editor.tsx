@@ -9,6 +9,8 @@ export const useEditorInput = (
   consoleFocused: boolean,
   editorInput: string,
   setEditorInput: any,
+  editorInputAfter: string,
+  setEditorInputAfter: any,
   setProcessCurrentLine: any,
   enableInput: boolean //enableInput parameter
 ) => {
@@ -27,18 +29,33 @@ export const useEditorInput = (
     const eventKey = event.key;
 
     if (eventKey === "Enter") {
+      setEditorInput(editorInput+editorInputAfter);
+      setEditorInputAfter('');
       setProcessCurrentLine(true);
       return;
     }
 
     let nextInput = null;
+    let afterInput = editorInputAfter;
 
     if (eventKey === "Backspace") {
       nextInput = editorInput.slice(0, -1);
     } else if (eventKey === "ArrowUp") {
       nextInput = getPreviousCommand();
     } else if (eventKey === "ArrowDown") {
-      nextInput = getNextCommand();
+      nextInput = editorInput.slice(0, -1);
+    } else if (eventKey === "ArrowLeft") {
+      nextInput = editorInput.slice(0, -1);
+      afterInput = editorInput.slice(-1)+afterInput;
+    } else if (eventKey === "ArrowRight") {
+      nextInput = editorInput+editorInputAfter.slice(0,1);
+      afterInput = editorInputAfter.slice(1);
+    }  else if (eventKey === "End") {
+      nextInput = editorInput+editorInputAfter;
+      afterInput = '';''
+    }  else if (eventKey === "Home") {
+      nextInput = '';
+      afterInput = editorInput+editorInputAfter
     } else {
       nextInput = eventKey && eventKey.length === 1
           ? editorInput + eventKey
@@ -46,6 +63,7 @@ export const useEditorInput = (
     }
 
     setEditorInput(nextInput);
+    setEditorInputAfter(afterInput);
     setProcessCurrentLine(false);
   };
 
@@ -128,7 +146,7 @@ export const useBufferedContent = (
             {output ? (
               <span>
                 <br />
-                {output}
+                {output.split('\n').map(line=> (<>{line}<br/></> ))}
               </span>
             ) : null}
             <br />
@@ -158,6 +176,7 @@ export const useCurrentLine = (
   const { appendCommandToHistory } = React.useContext(TerminalContext);
   const mobileInputRef = React.useRef(null);
   const [editorInput, setEditorInput] = React.useState("");
+  const [editorInputAfter, setEditorInputAfter] = React.useState("");
   const [processCurrentLine, setProcessCurrentLine] = React.useState(false);
   
   React.useEffect(
@@ -209,6 +228,8 @@ export const useCurrentLine = (
             <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}
+        <span className={style.preWhiteSpace}>{editorInputAfter}</span>
+
       </div>
     </>
   ) : (
@@ -228,6 +249,8 @@ export const useCurrentLine = (
     consoleFocused,
     editorInput,
     setEditorInput,
+    editorInputAfter,
+    setEditorInputAfter,
     setProcessCurrentLine,
     enableInput //enableInput from useCurrentLine()
   );
