@@ -69,7 +69,7 @@ Terminal.propTypes = {
     PropTypes.node
   ])),
   welcomeMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 Terminal.defaultProps = {
