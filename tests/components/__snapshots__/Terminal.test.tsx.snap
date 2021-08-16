@@ -28,7 +28,7 @@ exports[`Terminal renders correctly 1`] = `
       />
     </div>
     <div
-      className="editor"
+      className="editor null"
       style={
         Object {
           "background": "#fdf6e4",

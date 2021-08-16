@@ -87,15 +87,17 @@ The component comes with few in-built themes: light, dark and dracula. You can c
 ```
 
 ## Props
-| name | description | default |
-|--|--|--|
-| theme | Theme of the terminal | "light" |
-| themes | Themes object to supply custom themes | null |
-| showControlButtons | Whether to show the control buttons at the top of the terminal | true |
-| prompt | Terminal prompt | >>>
-| commands | List of commands to be provided as a key value pair where value can be either a string or callback | null
-| welcomeMessage | A welcome message to show at the start, before the prompt begins | null
-| errorMessage | Message to show when unidentified command executed | "not found!"
+| name | description | default
+|--|--|--
+| `welcomeMessage` | A welcome message to show at the start, before the prompt begins | null
+| `prompt` | Terminal prompt | >>>
+| `commands` | List of commands to be provided as a key value pair where value can be either a string or callback | null
+| `errorMessage` | Message to show when unidentified command executed | "not found!"
+| `enableInput` | Whether to enable user input | true
+| `showControlBar` | Whether to show the top control bar | true
+| `showControlButtons` | Whether to show the control buttons at the top bar of the terminal | true
+| `theme` | Theme of the terminal | "light"
+| `themes` | Themes object to supply custom themes | null
 
 ## In-built commands
 | command | description |
