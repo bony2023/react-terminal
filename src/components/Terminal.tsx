@@ -19,7 +19,7 @@ export default function Terminal(props: any) {
 
   // Get all props destructively
   const {
-    caret,  //caret prop
+    caret,
     theme,
     showControlButtons,
     controlButtonLabels,
@@ -27,7 +27,7 @@ export default function Terminal(props: any) {
     commands,
     welcomeMessage,
     errorMessage,
-    enableInput //enableInput prop
+    enableInput
   } = props;
 
   return (
@@ -43,13 +43,13 @@ export default function Terminal(props: any) {
           controlButtonLabels={controlButtonLabels}
         />
         <Editor
-          caret={caret}  // caret prop
+          caret={caret}
           consoleFocused={consoleFocused}
           prompt={prompt}
           commands={commands}
           welcomeMessage={welcomeMessage}
           errorMessage={errorMessage}
-          enableInput={enableInput} //enableInput prop
+          enableInput={enableInput}
         />
       </div>
     </div>
@@ -57,7 +57,7 @@ export default function Terminal(props: any) {
 }
 
 Terminal.propTypes = {
-  enableInput:PropTypes.bool,  //added both props with their types
+  enableInput:PropTypes.bool,
   caret: PropTypes.bool,
   theme: PropTypes.string,
   showControlButtons: PropTypes.bool,
@@ -73,7 +73,7 @@ Terminal.propTypes = {
 };
 
 Terminal.defaultProps = {
-  enableInput: true, //Input and caret are enabled by default
+  enableInput: true,
   caret: true,
   theme: "light",
   showControlButtons: true,
