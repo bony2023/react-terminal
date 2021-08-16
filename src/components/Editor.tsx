@@ -17,26 +17,27 @@ export default function Editor(props: any) {
   useScrollToBottom(bufferedContent, wrapperRef);
 
   const {
-    enableInput, //get both props
+    enableInput,
     caret,
     consoleFocused,
     prompt,
     commands,
     welcomeMessage,
-    errorMessage
+    errorMessage,
+    curvedTop
   } = props;
 
   const currentLine = useCurrentLine(
-    caret,  // useCurrentLine takes both props as parameters
+    caret,
     consoleFocused,
     prompt,
     commands,
     errorMessage, 
-    enableInput //enableInput prop as a parameter
+    enableInput
   );
 
   return (
-    <div ref={wrapperRef} className={style.editor} style={{ background: themeStyles.themeBGColor }}>
+    <div ref={wrapperRef} className={`${style.editor} ${curvedTop ? style.curvedTop : null}`} style={{ background: themeStyles.themeBGColor }}>
       {welcomeMessage}
       {bufferedContent}
       {currentLine}

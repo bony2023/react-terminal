@@ -21,6 +21,7 @@ export default function Terminal(props: any) {
   const {
     caret,
     theme,
+    showControlBar,
     showControlButtons,
     controlButtonLabels,
     prompt,
@@ -30,6 +31,21 @@ export default function Terminal(props: any) {
     enableInput
   } = props;
 
+  const controls = showControlBar ? <Controls
+    consoleFocused={consoleFocused}
+    showControlButtons={showControlButtons}
+    controlButtonLabels={controlButtonLabels}/> : null;
+
+  const editor = <Editor
+    caret={caret}
+    consoleFocused={consoleFocused}
+    prompt={prompt}
+    commands={commands}
+    welcomeMessage={welcomeMessage}
+    errorMessage={errorMessage}
+    enableInput={enableInput}
+    curvedTop={!showControlBar}/>
+
   return (
     <div
       ref={wrapperRef}
@@ -37,20 +53,8 @@ export default function Terminal(props: any) {
       className={style[`theme--${theme}`]}
     >
       <div className={`${style.terminal}`} style={{ background: themeStyles.themeToolbarColor, color: themeStyles.themeColor }}>
-        <Controls
-          consoleFocused={consoleFocused}
-          showControlButtons={showControlButtons}
-          controlButtonLabels={controlButtonLabels}
-        />
-        <Editor
-          caret={caret}
-          consoleFocused={consoleFocused}
-          prompt={prompt}
-          commands={commands}
-          welcomeMessage={welcomeMessage}
-          errorMessage={errorMessage}
-          enableInput={enableInput}
-        />
+        {controls}
+        {editor}
       </div>
     </div>
   );
@@ -60,6 +64,7 @@ Terminal.propTypes = {
   enableInput:PropTypes.bool,
   caret: PropTypes.bool,
   theme: PropTypes.string,
+  showControlBar: PropTypes.bool,
   showControlButtons: PropTypes.bool,
   controlButtonLabels: PropTypes.arrayOf(PropTypes.string),
   prompt: PropTypes.string,
@@ -76,6 +81,7 @@ Terminal.defaultProps = {
   enableInput: true,
   caret: true,
   theme: "light",
+  showControlBar: true,
   showControlButtons: true,
   controlButtonLabels: ["close", "minimize", "maximize"],
   prompt: ">>>",

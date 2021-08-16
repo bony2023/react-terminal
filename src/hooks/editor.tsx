@@ -10,7 +10,7 @@ export const useEditorInput = (
   editorInput: string,
   setEditorInput: any,
   setProcessCurrentLine: any,
-  enableInput: boolean //enableInput parameter
+  enableInput: boolean
 ) => {
   const { getPreviousCommand, getNextCommand } = React.useContext(TerminalContext);
 
@@ -146,12 +146,12 @@ export const useBufferedContent = (
 };
 
 export const useCurrentLine = (
-  caret: boolean,  // caret parameter 
+  caret: boolean,
   consoleFocused: boolean,
   prompt: string,
   commands: any,
   errorMessage: any,
-  enableInput: boolean  //enableInput parameter
+  enableInput: boolean
 ) => {
   const style = React.useContext(StyleContext);
   const themeStyles = React.useContext(ThemeContext);
@@ -183,7 +183,7 @@ export const useCurrentLine = (
     [processCurrentLine]
   );
 
-  const mobileInput = isMobile && enableInput? (//enableInput functionality on mobile
+  const mobileInput = isMobile && enableInput? (
     <div className={style.mobileInput}>
       <input
         type="text"
@@ -229,7 +229,7 @@ export const useCurrentLine = (
     editorInput,
     setEditorInput,
     setProcessCurrentLine,
-    enableInput //enableInput from useCurrentLine()
+    enableInput
   );
 
   useBufferedContent(
