@@ -25,7 +25,7 @@
 - Customizable commands, prompt and error message. ✅
 - Support callbacks(async/non-async) for commands. 🔄
 - Command history using arrow up and down. 🔼
-- In-built light, dark and dracula theme. 🚀
+- In-built themes and support to create more. 🚀
 
 ## Installation
 Install package with NPM or YARN and add it to your development dependencies:
@@ -69,29 +69,29 @@ ReactDOM.render(
 ```
 
 ## Creating custom themes
-The component comes with few in-built themes: light, dark and dracula. You can create a custom themes by passing `themes` parameter in props, as follows:
+The component comes with few in-built themes: `light`, `dark`, `material-light`, `material-dark`, `material-ocean`, `matrix` and `dracula`. You can also create custom themes by passing `themes` parameter in props, as follows:
 
 ```
 <ReactTerminal
   commands={commands}
   themes={{
-    myCustomTheme: {
+    my-custom-theme: {
       themeBGColor: "#272B36",
       themeToolbarColor: "#DBDBDB",
       themeColor: "#FFFEFC",
       themePromptColor: "#a917a8"
     }
   }}
-  theme="myCustomTheme"
+  theme="my-custom-theme"
 />
 ```
 
 ## Props
 | name | description | default
 |--|--|--
-| `welcomeMessage` | A welcome message to show at the start, before the prompt begins | null
+| `welcomeMessage` | A welcome message to show at the start, before the prompt begins. Value can be either a string or JSX | null
 | `prompt` | Terminal prompt | >>>
-| `commands` | List of commands to be provided as a key value pair where value can be either a string or callback | null
+| `commands` | List of commands to be provided as a key value pair where value can be either a string, JSX or callback | null
 | `errorMessage` | Message to show when unidentified command executed | "not found!"
 | `enableInput` | Whether to enable user input | true
 | `showControlBar` | Whether to show the top control bar | true
