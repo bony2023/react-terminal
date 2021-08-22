@@ -68,6 +68,19 @@ ReactDOM.render(
 );
 ```
 
+If you want to style the output, use HTML tags:
+```
+const commands = {
+  basic: "I am unstyled",
+  styled: () => (
+    <span style={{fontWeight: "bold"}}>
+      <span>Awesomely styled...</span> <br />
+      <span>...on multiple lines.</span>
+    </span>
+  )
+}
+```
+
 ## Creating custom themes
 The component comes with few in-built themes: `light`, `dark`, `material-light`, `material-dark`, `material-ocean`, `matrix` and `dracula`. You can also create custom themes by passing `themes` parameter in props, as follows:
 
