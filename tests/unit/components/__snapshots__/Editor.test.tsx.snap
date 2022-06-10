@@ -9,8 +9,6 @@ exports[`Editor Editor renders correctly 1`] = `
     }
   }
 >
-  
-  
   <span
     style={
       Object {
@@ -25,14 +23,10 @@ exports[`Editor Editor renders correctly 1`] = `
   >
     <span
       className="preWhiteSpace"
-    >
-      
-    </span>
+    />
     <span
       className="preWhiteSpace"
-    >
-      
-    </span>
+    />
   </div>
 </div>
 `;
