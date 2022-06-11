@@ -428,9 +428,9 @@
     "@types/enzyme" "*"
 
 "@types/enzyme@*", "@types/enzyme@^3.10.4":
-  version "3.10.4"
-  resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.10.4.tgz#dd4961042381a7c0f6637ce25fec3f773ce489dd"
-  integrity sha512-P5XpxcIt9KK8QUH4al4ttfJfIHg6xmN9ZjyUzRSzAsmDYwRXLI05ng/flZOPXrEXmp8ZYiN8/tEXYK5KSOQk3w==
+  version "3.10.12"
+  resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.10.12.tgz#ac4494801b38188935580642f772ad18f72c132f"
+  integrity sha512-xryQlOEIe1TduDWAOphR0ihfebKFSWOXpIsk+70JskCfRfW+xALdnJ0r1ZOTo85F9Qsjk6vtlU7edTYHbls9tA==
   dependencies:
     "@types/cheerio" "*"
     "@types/react" "*"
@@ -2263,6 +2263,7 @@ debug@3.1.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 debug@4, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
@@ -2274,10 +2275,13 @@ debug@4, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
 >>>>>>> 2cd34a9 (Bump codecov from 3.7.1 to 3.8.3)
 =======
 >>>>>>> b9ee447 (Bump eslint-plugin-react from 7.24.0 to 7.30.0)
+=======
+>>>>>>> 419ce24 (Bump @types/enzyme from 3.10.4 to 3.10.12)
 debug@4, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2288,6 +2292,8 @@ debug@4, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
 >>>>>>> 2cd34a9 (Bump codecov from 3.7.1 to 3.8.3)
 =======
 >>>>>>> b9ee447 (Bump eslint-plugin-react from 7.24.0 to 7.30.0)
+=======
+>>>>>>> 419ce24 (Bump @types/enzyme from 3.10.4 to 3.10.12)
   dependencies:
     ms "2.1.2"
 
@@ -2310,6 +2316,7 @@ debug@^3.1.0, debug@^3.2.7:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3e72071 (Bump webpack from 4.46.0 to 5.73.0)
 =======
@@ -2318,6 +2325,8 @@ debug@^3.1.0, debug@^3.2.7:
 >>>>>>> 2cd34a9 (Bump codecov from 3.7.1 to 3.8.3)
 =======
 >>>>>>> b9ee447 (Bump eslint-plugin-react from 7.24.0 to 7.30.0)
+=======
+>>>>>>> 419ce24 (Bump @types/enzyme from 3.10.4 to 3.10.12)
 debug@^4.3.1:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
@@ -2326,6 +2335,7 @@ debug@^4.3.1:
     ms "2.1.2"
 
 debuglog@*, debuglog@^1.0.1:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2341,6 +2351,8 @@ debuglog@^1.0.1:
 >>>>>>> 2cd34a9 (Bump codecov from 3.7.1 to 3.8.3)
 =======
 >>>>>>> b9ee447 (Bump eslint-plugin-react from 7.24.0 to 7.30.0)
+=======
+>>>>>>> 419ce24 (Bump @types/enzyme from 3.10.4 to 3.10.12)
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
