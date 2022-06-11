@@ -91,7 +91,7 @@ The component comes with few in-built themes: `light`, `dark`, `material-light`,
 |--|--|--
 | `welcomeMessage` | A welcome message to show at the start, before the prompt begins. Value can be either a string or JSX | null
 | `prompt` | Terminal prompt | >>>
-| `commands` | List of commands to be provided as a key value pair where value can be either a string, JSX or callback | null
+| `commands` | List of commands to be provided as a key value pair where value can be either a string, JSX/HTML tag or callback | null
 | `errorMessage` | Message to show when unidentified command executed | "not found!"
 | `enableInput` | Whether to enable user input | true
 | `showControlBar` | Whether to show the top control bar | true
