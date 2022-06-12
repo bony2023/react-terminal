@@ -1,6 +1,6 @@
 .editor {
   text-align: left;
-  height: calc(100% - 46px);
+  height: 100%;
   padding: 10px 15px;
   overflow-wrap: break-word;
   overflow-y: scroll;
@@ -98,6 +98,10 @@
   a {
     color: #1a87b5;
   }
+}
+
+.editorWithTopBar {
+  height: calc(100% - 46px);
 }
 
 .curvedTop {

@@ -2,7 +2,7 @@
 
 exports[`Editor Editor renders correctly 1`] = `
 <div
-  className="editor null"
+  className="editor curvedTop null"
   style={
     Object {
       "background": "#fdf6e4",

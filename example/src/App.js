@@ -16,7 +16,7 @@ function App() {
         <strong>change_theme &lt;THEME&gt;</strong> - Changes the theme of the terminal. Allowed themes - light, dark, material-light, material-dark, material-ocean, matrix and dracula. <br/>
         <strong>toggle_control_bar</strong> - Hides / Display the top control bar. <br/>
         <strong>toggle_control_buttons</strong> - Hides / Display the top buttons on control bar. <br/>
-        <strong>evaluate_math_expression &lt;EXPR&gt;</strong> - Evaluates a mathematical expression (eg, <strong>4*4</strong>) by hitting a public, api.mathjs.org.
+        <strong>evaluate_math_expression &lt;EXPR&gt;</strong> - Evaluates a mathematical expression (eg, <strong>4*4</strong>) by hitting a public API, api.mathjs.org.
       </span>),
 
     change_prompt: (prompt) => {
@@ -40,7 +40,7 @@ function App() {
     },
 
     evaluate_math_expression: async (expr) => {
-      const response = await fetch(`https://api.mathjs.org/v4/?expr=${expr}`);
+      const response = await fetch(`https://api.mathjs.org/v4/?expr=${encodeURIComponent(expr)}`);
       return await response.text();
     }
   };

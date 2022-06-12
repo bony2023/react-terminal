@@ -44,7 +44,7 @@ export default function Terminal(props: any) {
     welcomeMessage={welcomeMessage}
     errorMessage={errorMessage}
     enableInput={enableInput}
-    curvedTop={!showControlBar}/>
+    showControlBar={showControlBar}/>
 
   return (
     <div

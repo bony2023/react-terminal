@@ -24,7 +24,7 @@ export default function Editor(props: any) {
     commands,
     welcomeMessage,
     errorMessage,
-    curvedTop
+    showControlBar
   } = props;
 
   const currentLine = useCurrentLine(
@@ -37,7 +37,7 @@ export default function Editor(props: any) {
   );
 
   return (
-    <div ref={wrapperRef} className={`${style.editor} ${curvedTop ? style.curvedTop : null}`} style={{ background: themeStyles.themeBGColor }}>
+    <div ref={wrapperRef} className={`${style.editor} ${!showControlBar ? style.curvedTop : null} ${showControlBar ? style.editorWithTopBar : null}`} style={{ background: themeStyles.themeBGColor }}>
       {welcomeMessage}
       {bufferedContent}
       {currentLine}
