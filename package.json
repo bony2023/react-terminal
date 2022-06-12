@@ -53,7 +53,6 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "node-sass": "^7.0.1",
     "npm-install-peers": "^1.2.1",
     "react-test-renderer": "^17.0.2",
     "rollup": "^1.27.14",
@@ -101,6 +100,7 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react-device-detect": "^2.2.2"
+    "react-device-detect": "^2.2.2",
+    "sass": "^1.52.3"
   }
 }
