@@ -311,6 +311,7 @@ export const useCurrentLine = (
 export const useScrollToBottom = (changesToWatch: any, wrapperRef: any) => {
   React.useEffect(
     () => {
+      if (!wrapperRef.current) return;
       // eslint-disable-next-line no-param-reassign
       wrapperRef.current.scrollTop = wrapperRef.current.scrollHeight;
     },
