@@ -5,11 +5,17 @@ import { StyleContext } from "../contexts/StyleContext";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { TerminalContext } from "../contexts/TerminalContext";
 
+import Utils from "../common/Utils"
+
 export const useEditorInput = (
   consoleFocused: boolean,
   editorInput: string,
   setEditorInput: any,
   setProcessCurrentLine: any,
+  caretPosition: number,
+  setCaretPosition: any,
+  setBeforeCaretText: any,
+  setAfterCaretText: any,
   enableInput: boolean
 ) => {
   const { getPreviousCommand, getNextCommand } = React.useContext(TerminalContext);
@@ -34,15 +40,43 @@ export const useEditorInput = (
     let nextInput = null;
 
     if (eventKey === "Backspace") {
-      nextInput = editorInput.slice(0, -1);
+      const [caretTextBefore, caretTextAfter] = Utils.splitStringAtIndex(editorInput, caretPosition);
+      nextInput = caretTextBefore.slice(0, -1) + caretTextAfter;
+      if (editorInput && editorInput.length !== 0) setCaretPosition(caretPosition - 1);
     } else if (eventKey === "ArrowUp") {
       nextInput = getPreviousCommand();
+      if (nextInput) setCaretPosition(nextInput.length);
     } else if (eventKey === "ArrowDown") {
       nextInput = getNextCommand();
+      if (nextInput) setCaretPosition(nextInput.length);
+      else setCaretPosition(0);
+    } else if (eventKey === "ArrowLeft") {
+      if (caretPosition > 0) setCaretPosition(caretPosition - 1);
+      nextInput = editorInput
+    } else if (eventKey === "ArrowRight") {
+      if (caretPosition < editorInput.length) setCaretPosition(caretPosition + 1);
+      nextInput = editorInput
+    } else if ((event.metaKey || event.ctrlKey) && eventKey.toLowerCase() === "v") {
+      navigator.clipboard.readText()
+      .then(pastedText => {
+        const [caretTextBefore, caretTextAfter] = Utils.splitStringAtIndex(editorInput || "", caretPosition);
+        nextInput = nextInput = caretTextBefore + pastedText + caretTextAfter;
+        setCaretPosition(caretPosition + pastedText.length);
+        setEditorInput(nextInput);
+      });
+    } else if ((event.metaKey || event.ctrlKey) && eventKey.toLowerCase() === "c") {
+      const selectedText = window.getSelection().toString();
+      navigator.clipboard.writeText(selectedText)
+      .then(() => {
+        nextInput = editorInput;
+        setEditorInput(nextInput);
+      });
     } else {
-      nextInput = eventKey && eventKey.length === 1
-          ? editorInput + eventKey
-          : editorInput;
+      if (eventKey && eventKey.length === 1) {
+        const [caretTextBefore, caretTextAfter] = Utils.splitStringAtIndex(editorInput, caretPosition);
+        nextInput = caretTextBefore + eventKey + caretTextAfter;
+        setCaretPosition(caretPosition + 1);
+      } else nextInput = editorInput
     }
 
     setEditorInput(nextInput);
@@ -57,6 +91,15 @@ export const useEditorInput = (
       document.removeEventListener("keydown", handleKeyDownEvent);
     };
   });
+
+  React.useEffect(
+    () => {
+      const [caretTextBefore, caretTextAfter] = Utils.splitStringAtIndex(editorInput, caretPosition);
+      setBeforeCaretText(caretTextBefore);
+      setAfterCaretText(caretTextAfter);
+    },
+    [caretPosition]
+  );
 };
 
 export const useBufferedContent = (
@@ -65,6 +108,9 @@ export const useBufferedContent = (
   prompt: string,
   currentText: any,
   setCurrentText: any,
+  setCaretPosition: any,
+  setBeforeCaretText: any,
+  setAfterCaretText: any,
   commands: any,
   errorMessage: any
 ) => {
@@ -87,6 +133,9 @@ export const useBufferedContent = (
           setBufferedContent("");
           setCurrentText("");
           setProcessCurrentLine(false);
+          setCaretPosition(0);
+          setBeforeCaretText("");
+          setAfterCaretText("");
           return 
         }
 
@@ -100,6 +149,9 @@ export const useBufferedContent = (
         );
         setBufferedContent(waiting);
         setCurrentText("");
+        setCaretPosition(0);
+        setBeforeCaretText("");
+        setAfterCaretText("");
 
         
         if (text) {
@@ -159,7 +211,10 @@ export const useCurrentLine = (
   const mobileInputRef = React.useRef(null);
   const [editorInput, setEditorInput] = React.useState("");
   const [processCurrentLine, setProcessCurrentLine] = React.useState(false);
-  
+  const [caretPosition, setCaretPosition] = React.useState(0);
+  const [beforeCaretText, setBeforeCaretText] = React.useState("");
+  const [afterCaretText, setAfterCaretText] = React.useState("");
+
   React.useEffect(
     () => {
       if (!isMobile) {
@@ -203,12 +258,13 @@ export const useCurrentLine = (
       {mobileInput}
       <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
       <div className={style.lineText}>
-        <span className={style.preWhiteSpace}>{editorInput}</span>
+        <span className={style.preWhiteSpace}>{beforeCaretText}</span>
         {consoleFocused && caret ? (  //if caret isn't true, caret won't be displayed
           <span className={style.caret}> 
             <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}
+        <span className={style.preWhiteSpace}>{afterCaretText}</span>
       </div>
     </>
   ) : (
@@ -229,6 +285,10 @@ export const useCurrentLine = (
     editorInput,
     setEditorInput,
     setProcessCurrentLine,
+    caretPosition,
+    setCaretPosition,
+    setBeforeCaretText,
+    setAfterCaretText,
     enableInput
   );
 
@@ -238,6 +298,9 @@ export const useCurrentLine = (
     prompt,
     editorInput,
     setEditorInput,
+    setCaretPosition,
+    setBeforeCaretText,
+    setAfterCaretText,
     commands,
     errorMessage
   );

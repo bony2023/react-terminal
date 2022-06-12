@@ -25,23 +25,24 @@
 - Customizable commands, prompt and error message. ✅
 - Support callbacks(async/non-async) for commands. 🔄
 - Command history using arrow up and down. 🔼
+- Support for copy/paste. 📋
 - In-built themes and support to create more. 🚀
 
 ## Installation
 Install package with NPM or YARN and add it to your development dependencies:
 ```
-npm install --save-dev react-terminal
+npm install react-terminal
 ```
 OR
 ```
-yarn add --dev react-terminal
+yarn add react-terminal
 ```
 
 ## Usage
 ```
 import { ReactTerminal } from "react-terminal";
 
-function MyComponent(props) {
+function App(props) {
   // Define commands here
   const commands = {
     whoami: "jackharper",
