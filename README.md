@@ -25,23 +25,24 @@
 - Customizable commands, prompt and error message. ✅
 - Support callbacks(async/non-async) for commands. 🔄
 - Command history using arrow up and down. 🔼
+- Support for copy/paste. 📋
 - In-built themes and support to create more. 🚀
 
 ## Installation
 Install package with NPM or YARN and add it to your development dependencies:
 ```
-npm install --save-dev react-terminal
+npm install react-terminal
 ```
 OR
 ```
-yarn add --dev react-terminal
+yarn add react-terminal
 ```
 
 ## Usage
 ```
 import { ReactTerminal } from "react-terminal";
 
-function MyComponent(props) {
+function App(props) {
   // Define commands here
   const commands = {
     whoami: "jackharper",
@@ -91,7 +92,7 @@ The component comes with few in-built themes: `light`, `dark`, `material-light`,
 |--|--|--
 | `welcomeMessage` | A welcome message to show at the start, before the prompt begins. Value can be either a string or JSX | null
 | `prompt` | Terminal prompt | >>>
-| `commands` | List of commands to be provided as a key value pair where value can be either a string, JSX or callback | null
+| `commands` | List of commands to be provided as a key value pair where value can be either a string, JSX/HTML tag or callback | null
 | `errorMessage` | Message to show when unidentified command executed | "not found!"
 | `enableInput` | Whether to enable user input | true
 | `showControlBar` | Whether to show the top control bar | true

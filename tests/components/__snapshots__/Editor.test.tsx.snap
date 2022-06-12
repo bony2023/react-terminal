@@ -28,6 +28,11 @@ exports[`Editor Editor renders correctly 1`] = `
     >
       
     </span>
+    <span
+      className="preWhiteSpace"
+    >
+      
+    </span>
   </div>
 </div>
 `;

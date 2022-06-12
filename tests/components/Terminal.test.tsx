@@ -13,6 +13,22 @@ const renderWrapper = () => (
   </ContextProvider>
 );
 
-it("Terminal renders correctly", () => {
-  expect(renderer.create(renderWrapper()).toJSON()).toMatchSnapshot();
+describe("Terminal", () => {
+  it("Terminal renders correctly", () => {
+    expect(renderer.create(renderWrapper()).toJSON()).toMatchSnapshot();
+  });
+
+  it("Terminal doesn't render control buttons", () => {
+    props = {
+      showControlButtons: false,
+    };
+    expect(renderer.create(renderWrapper()).toJSON()).toMatchSnapshot();
+  });
+
+  it("Terminal doesn't render control bar", () => {
+    props = {
+      showControlBar: false,
+    };
+    expect(renderer.create(renderWrapper()).toJSON()).toMatchSnapshot();
+  });
 });

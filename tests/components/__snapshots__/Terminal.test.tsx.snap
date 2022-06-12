@@ -1,6 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Terminal renders correctly 1`] = `
+exports[`Terminal Terminal doesn't render control bar 1`] = `
+<div
+  className="theme--light"
+  id="terminalContainer"
+>
+  <div
+    className="terminal"
+    style={
+      Object {
+        "background": "#d8d8d8",
+        "color": "#333333",
+      }
+    }
+  >
+    <div
+      className="editor curvedTop"
+      style={
+        Object {
+          "background": "#fdf6e4",
+        }
+      }
+    >
+      
+      
+      <span
+        style={
+          Object {
+            "color": "#a917a8",
+          }
+        }
+      >
+        &gt;&gt;&gt;
+      </span>
+      <div
+        className="lineText"
+      >
+        <span
+          className="preWhiteSpace"
+        >
+          
+        </span>
+        <span
+          className="caret"
+        >
+          <span
+            className="caretAfter"
+            style={
+              Object {
+                "background": "#333333",
+              }
+            }
+          />
+        </span>
+        <span
+          className="preWhiteSpace"
+        >
+          
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Terminal Terminal doesn't render control buttons 1`] = `
+<div
+  className="theme--light"
+  id="terminalContainer"
+>
+  <div
+    className="terminal"
+    style={
+      Object {
+        "background": "#d8d8d8",
+        "color": "#333333",
+      }
+    }
+  >
+    <div
+      className="controls"
+    />
+    <div
+      className="editor null"
+      style={
+        Object {
+          "background": "#fdf6e4",
+        }
+      }
+    >
+      
+      
+      <span
+        style={
+          Object {
+            "color": "#a917a8",
+          }
+        }
+      >
+        &gt;&gt;&gt;
+      </span>
+      <div
+        className="lineText"
+      >
+        <span
+          className="preWhiteSpace"
+        >
+          
+        </span>
+        <span
+          className="caret"
+        >
+          <span
+            className="caretAfter"
+            style={
+              Object {
+                "background": "#333333",
+              }
+            }
+          />
+        </span>
+        <span
+          className="preWhiteSpace"
+        >
+          
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Terminal Terminal renders correctly 1`] = `
 <div
   className="theme--light"
   id="terminalContainer"
@@ -65,6 +196,11 @@ exports[`Terminal renders correctly 1`] = `
               }
             }
           />
+        </span>
+        <span
+          className="preWhiteSpace"
+        >
+          
         </span>
       </div>
     </div>
