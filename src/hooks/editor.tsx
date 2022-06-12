@@ -98,7 +98,7 @@ export const useEditorInput = (
       setBeforeCaretText(caretTextBefore);
       setAfterCaretText(caretTextAfter);
     },
-    [caretPosition]
+    [editorInput, caretPosition]
   );
 };
 
