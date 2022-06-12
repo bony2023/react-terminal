@@ -7268,10 +7268,10 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-terminal@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/react-terminal/-/react-terminal-1.2.4.tgz#c0758fbca4de112999fd0ea44ef26035c8faf030"
-  integrity sha512-nWwZk7xabUCl9fuylAJ6BiZ5GvL9hFPWd2qQ8MXQmaieuBK2+S5EStjoJDDaufobxh2pf867ce2sasg7VVouqg==
+react-terminal@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/react-terminal/-/react-terminal-1.2.5.tgz#ffe51b97a642e048bb64a6a8da7b03773eda551c"
+  integrity sha512-wSESMBVTfWW7YxnFZcIwd/zQMcVLQ2jkywTaoUaqzR7vTqqq1iphW5uoy9dPZOkvUkT7m3XkXEPiTpzwpLvX9Q==
   dependencies:
     prop-types "^15.7.2"
     react-device-detect "^2.2.2"
