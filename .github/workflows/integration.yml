@@ -30,4 +30,4 @@ jobs:
           node-version: 12
       - run: yarn install
       - run: ./node_modules/.bin/npm-install-peers
-      - run: yarn test && ./node_modules/.bin/codecov -t ${{secrets.CODECOV_REPO_TOKEN}}
+      - run: yarn test

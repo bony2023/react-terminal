@@ -41,7 +41,6 @@
     "@types/react-test-renderer": "^16.9.1",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
-    "codecov": "^3.6.1",
     "cross-env": "^6.0.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
