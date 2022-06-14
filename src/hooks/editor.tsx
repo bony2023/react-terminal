@@ -160,12 +160,12 @@ export const useBufferedContent = (
             const executor = commands[command];
 
             if (typeof executor === "function") {
-              output = await executor(text);
+              output = await executor(commandArguments);
             } else {
               output = executor;
             }
           } else if (typeof errorMessage === "function") {
-            output = await errorMessage(commandArguments);
+            output = await errorMessage(text);
           } else {
             output = errorMessage;
           }
