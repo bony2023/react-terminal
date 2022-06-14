@@ -51,6 +51,7 @@ export default function Terminal(props: any) {
       ref={wrapperRef}
       id={style.terminalContainer}
       className={style[`theme--${theme}`]}
+      data-testid="terminal"
     >
       <div className={`${style.terminal}`} style={{ background: themeStyles.themeToolbarColor, color: themeStyles.themeColor }}>
         {controls}
@@ -74,7 +75,7 @@ Terminal.propTypes = {
     PropTypes.node
   ])),
   welcomeMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
-  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node])
 };
 
 Terminal.defaultProps = {

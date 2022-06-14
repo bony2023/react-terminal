@@ -1,4 +1,4 @@
-import Utils from "../../src/common/Utils";
+import Utils from "../../../src/common/Utils";
 
 describe("Utils", () => {
     it("splitStringAtIndex splits string at a index", () => {

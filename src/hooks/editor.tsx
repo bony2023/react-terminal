@@ -60,7 +60,7 @@ export const useEditorInput = (
       navigator.clipboard.readText()
       .then(pastedText => {
         const [caretTextBefore, caretTextAfter] = Utils.splitStringAtIndex(editorInput || "", caretPosition);
-        nextInput = nextInput = caretTextBefore + pastedText + caretTextAfter;
+        nextInput = caretTextBefore + pastedText + caretTextAfter;
         setCaretPosition(caretPosition + pastedText.length);
         setEditorInput(nextInput);
       });
@@ -152,7 +152,6 @@ export const useBufferedContent = (
         setCaretPosition(0);
         setBeforeCaretText("");
         setAfterCaretText("");
-
         
         if (text) {
           const commandArguments = rest.join(" ");
