@@ -160,7 +160,7 @@ export const useBufferedContent = (
             const executor = commands[command];
 
             if (typeof executor === "function") {
-              output = await executor(commandArguments);
+              output = await executor(text);
             } else {
               output = executor;
             }

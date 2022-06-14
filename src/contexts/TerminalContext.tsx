@@ -39,9 +39,6 @@ export const TerminalContextProvider = (props: any) => {
 
   const getNextCommand = () => {
     if (historyPointer + 1 <= commandsHistory.length) {
-      if (historyPointer === commandsHistory.length) {
-        return "";
-      }
       const command = commandsHistory[historyPointer + 1];
       setHistoryPointer(historyPointer + 1);
       return command;
