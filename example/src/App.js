@@ -56,7 +56,10 @@ function App() {
           showControlBar={controlBar}
           showControlButtons={controlButtons}
           welcomeMessage={welcomeMessage}
-          commands={commands}/>
+          commands={commands}
+          defaultHandler={(command, commandArguments) => {
+            return `${command} passed on to default handler with arguments ${commandArguments}`;
+          }}/>
       </TerminalContextProvider>
     </div>
   );
