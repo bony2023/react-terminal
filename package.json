@@ -1,6 +1,6 @@
 {
   "name": "react-terminal",
-  "version": "v1.2.7",
+  "version": "v1.2.8",
   "description": "React component that renders a terminal",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
