@@ -80,6 +80,9 @@ const App = () => {
           showControlButtons={controlButtons}
           welcomeMessage={welcomeMessage}
           commands={commands}
+          defaultHandler={(command, commandArguments) => {
+            return `${command} passed on to default handler with arguments ${commandArguments}`;
+          }}
         />
       </TerminalContextProvider>
     </div>
