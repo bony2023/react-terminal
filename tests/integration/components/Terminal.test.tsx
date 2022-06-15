@@ -179,6 +179,29 @@ describe('ReactTerminal', () => {
     expect(terminalContainer.querySelectorAll('.preWhiteSpace')[1].textContent).toBe('');
   });
 
+  test('paste the text from clipboard', async () => {
+    render(
+      <TerminalContextProvider>
+          <ReactTerminal commands={{whoami: "jackharper"}}/>
+      </TerminalContextProvider>
+    );
+
+    Object.defineProperty(global.navigator, 'clipboard', {
+      value: {
+        readText: jest.fn(() => new Promise((resolve) => {
+          resolve("whoami");
+        }))
+      },
+    });
+
+    const terminalContainer = screen.getByTestId('terminal')
+    await act(async () => {
+      writeText(terminalContainer, 'v', true);
+    });
+    writeText(terminalContainer, 'Enter');
+    expect(terminalContainer.textContent).toContain('jackharper');
+  });
+
   test('empty command does nothing', () => {
     render(
       <TerminalContextProvider>
@@ -249,6 +272,26 @@ describe('ReactTerminal', () => {
       writeText(terminalContainer, 'Enter');
     });
     expect(terminalContainer.textContent).toContain('Function but command not found');
+  });
+
+  test('defaultHandler is used if provided when no commands match', async () => {
+    render(
+      <TerminalContextProvider>
+          <ReactTerminal commands={{whoami: "jackharper"}} defaultHandler={() => {
+            return "default command handler triggered";
+          }}/>
+      </TerminalContextProvider>
+    );
+
+    let terminalContainer = screen.getByTestId('terminal');
+    writeText(terminalContainer, 'whoami');
+    writeText(terminalContainer, 'Enter');
+    expect(terminalContainer.textContent).toContain('jackharper');
+    writeText(terminalContainer, 'invalid_command');
+    await act(async () => {
+      writeText(terminalContainer, 'Enter');
+    });
+    expect(terminalContainer.textContent).toContain('default command handler triggered');
   });
 });
 

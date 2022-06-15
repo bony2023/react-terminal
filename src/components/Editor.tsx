@@ -24,7 +24,8 @@ export default function Editor(props: any) {
     commands,
     welcomeMessage,
     errorMessage,
-    showControlBar
+    showControlBar,
+    defaultHandler
   } = props;
 
   const currentLine = useCurrentLine(
@@ -33,7 +34,8 @@ export default function Editor(props: any) {
     prompt,
     commands,
     errorMessage, 
-    enableInput
+    enableInput,
+    defaultHandler
   );
 
   return (

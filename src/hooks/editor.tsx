@@ -112,7 +112,8 @@ export const useBufferedContent = (
   setBeforeCaretText: any,
   setAfterCaretText: any,
   commands: any,
-  errorMessage: any
+  errorMessage: any,
+  defaultHandler: any
 ) => {
   const { bufferedContent, setBufferedContent } = React.useContext(TerminalContext);
   const style = React.useContext(StyleContext);
@@ -164,8 +165,10 @@ export const useBufferedContent = (
             } else {
               output = executor;
             }
+          } else if (typeof defaultHandler === "function") {
+            output = await defaultHandler(command, commandArguments);
           } else if (typeof errorMessage === "function") {
-            output = await errorMessage(text);
+            output = await errorMessage(command, commandArguments);
           } else {
             output = errorMessage;
           }
@@ -202,7 +205,8 @@ export const useCurrentLine = (
   prompt: string,
   commands: any,
   errorMessage: any,
-  enableInput: boolean
+  enableInput: boolean,
+  defaultHandler: any
 ) => {
   const style = React.useContext(StyleContext);
   const themeStyles = React.useContext(ThemeContext);
@@ -301,7 +305,8 @@ export const useCurrentLine = (
     setBeforeCaretText,
     setAfterCaretText,
     commands,
-    errorMessage
+    errorMessage,
+    defaultHandler
   );
 
   return currentLine;
