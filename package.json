@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/bony2023/react-terminal#readme",
   "devDependencies": {
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.0",
     "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
