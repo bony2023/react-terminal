@@ -795,9 +795,9 @@
     "@types/react" "^16"
 
 "@types/react@*", "@types/react@^18.0.12":
-  version "18.0.14"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.14.tgz#e016616ffff51dba01b04945610fe3671fdbe06d"
-  integrity sha512-x4gGuASSiWmo0xjDLpm5mPb52syZHJx02VKbqUKdLmKtAwIh63XClGsiTI1K6DO5q7ox4xAsQrU+Gl3+gGXF9Q==
+  version "18.0.20"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.20.tgz#e4c36be3a55eb5b456ecf501bd4a00fd4fd0c9ab"
+  integrity sha512-MWul1teSPxujEHVwZl4a5HxQ9vVNsjTchVA+xRqv/VYGCuKGAU6UhfrTdF5aBefwD1BHUD8i/zq+O/vyCm/FrA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -7738,9 +7738,9 @@ typedarray@^0.0.6:
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
 typescript@^4.3.5:
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.3.tgz#8364b502d5257b540f9de4c40be84c98e23a129d"
-  integrity sha512-WOkT3XYvrpXx4vMMqlD+8R8R37fZkjyLGlxavMc4iB8lrl8L0DeTcHbYgw/v0N/z9wAFsgBhcsF0ruoySS22mA==
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.3.tgz#d59344522c4bc464a65a730ac695007fdb66dd88"
+  integrity sha512-goMHfm00nWPa8UvR/CPSvykqf6dVV8x/dp0c5mFTMTIu0u0FlGWRioyy7Nn0PGAdHxpJZnuO/ut+PpQ8UiHAig==
 
 ua-parser-js@^1.0.2:
   version "1.0.2"
