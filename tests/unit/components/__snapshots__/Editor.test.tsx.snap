@@ -4,16 +4,14 @@ exports[`Editor Editor renders correctly 1`] = `
 <div
   className="editor curvedTop null"
   style={
-    Object {
+    {
       "background": "#fdf6e4",
     }
   }
 >
-  
-  
   <span
     style={
-      Object {
+      {
         "color": "#a917a8",
       }
     }
@@ -25,14 +23,10 @@ exports[`Editor Editor renders correctly 1`] = `
   >
     <span
       className="preWhiteSpace"
-    >
-      
-    </span>
+    />
     <span
       className="preWhiteSpace"
-    >
-      
-    </span>
+    />
   </div>
 </div>
 `;

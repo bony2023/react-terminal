@@ -9,7 +9,7 @@ exports[`Terminal Terminal doesn't render control bar 1`] = `
   <div
     className="terminal"
     style={
-      Object {
+      {
         "background": "#d8d8d8",
         "color": "#333333",
       }
@@ -18,16 +18,14 @@ exports[`Terminal Terminal doesn't render control bar 1`] = `
     <div
       className="editor curvedTop null"
       style={
-        Object {
+        {
           "background": "#fdf6e4",
         }
       }
     >
-      
-      
       <span
         style={
-          Object {
+          {
             "color": "#a917a8",
           }
         }
@@ -39,16 +37,14 @@ exports[`Terminal Terminal doesn't render control bar 1`] = `
       >
         <span
           className="preWhiteSpace"
-        >
-          
-        </span>
+        />
         <span
           className="caret"
         >
           <span
             className="caretAfter"
             style={
-              Object {
+              {
                 "background": "#333333",
               }
             }
@@ -56,9 +52,7 @@ exports[`Terminal Terminal doesn't render control bar 1`] = `
         </span>
         <span
           className="preWhiteSpace"
-        >
-          
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -74,7 +68,7 @@ exports[`Terminal Terminal doesn't render control buttons 1`] = `
   <div
     className="terminal"
     style={
-      Object {
+      {
         "background": "#d8d8d8",
         "color": "#333333",
       }
@@ -86,16 +80,14 @@ exports[`Terminal Terminal doesn't render control buttons 1`] = `
     <div
       className="editor null editorWithTopBar"
       style={
-        Object {
+        {
           "background": "#fdf6e4",
         }
       }
     >
-      
-      
       <span
         style={
-          Object {
+          {
             "color": "#a917a8",
           }
         }
@@ -107,16 +99,14 @@ exports[`Terminal Terminal doesn't render control buttons 1`] = `
       >
         <span
           className="preWhiteSpace"
-        >
-          
-        </span>
+        />
         <span
           className="caret"
         >
           <span
             className="caretAfter"
             style={
-              Object {
+              {
                 "background": "#333333",
               }
             }
@@ -124,9 +114,7 @@ exports[`Terminal Terminal doesn't render control buttons 1`] = `
         </span>
         <span
           className="preWhiteSpace"
-        >
-          
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -142,7 +130,7 @@ exports[`Terminal Terminal renders correctly 1`] = `
   <div
     className="terminal"
     style={
-      Object {
+      {
         "background": "#d8d8d8",
         "color": "#333333",
       }
@@ -164,16 +152,14 @@ exports[`Terminal Terminal renders correctly 1`] = `
     <div
       className="editor null editorWithTopBar"
       style={
-        Object {
+        {
           "background": "#fdf6e4",
         }
       }
     >
-      
-      
       <span
         style={
-          Object {
+          {
             "color": "#a917a8",
           }
         }
@@ -185,16 +171,14 @@ exports[`Terminal Terminal renders correctly 1`] = `
       >
         <span
           className="preWhiteSpace"
-        >
-          
-        </span>
+        />
         <span
           className="caret"
         >
           <span
             className="caretAfter"
             style={
-              Object {
+              {
                 "background": "#333333",
               }
             }
@@ -202,9 +186,7 @@ exports[`Terminal Terminal renders correctly 1`] = `
         </span>
         <span
           className="preWhiteSpace"
-        >
-          
-        </span>
+        />
       </div>
     </div>
   </div>
