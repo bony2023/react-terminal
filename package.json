@@ -56,7 +56,7 @@
     "eslint-plugin-react-hooks": "^4.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.1",
-    "jest-environment-jsdom": "^28.1.1",
+    "jest-environment-jsdom": "^29.0.3",
     "npm-install-peers": "^1.2.1",
     "react-test-renderer": "^17.0.2",
     "rollup": "^2.75.6",
