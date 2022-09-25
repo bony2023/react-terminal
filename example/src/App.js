@@ -62,6 +62,13 @@ const App = () => {
       );
       return await response.text();
     },
+
+    command: async (command) => {
+      const response = await fetch(
+        `http://localhost:3003/expr=${encodeURIComponent(command)}`
+      );
+      return await response.text();
+    },
   };
 
   const welcomeMessage = (
