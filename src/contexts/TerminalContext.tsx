@@ -1,10 +1,29 @@
 import * as React from "react";
 
-export const TerminalContext = React.createContext(null);
+export type TerminalShell = {
+  bufferedContent: React.ReactNode,
+  temporaryContent: React.ReactNode,
+  setBufferedContent: React.Dispatch<React.SetStateAction<React.ReactNode>>,
+  setTemporaryContent: React.Dispatch<React.SetStateAction<React.ReactNode>>,
+  appendCommandToHistory: (command: string) => void,
+  getNextCommand: () => string,
+  getPreviousCommand: () => string,
+}
+
+export const TerminalContext = React.createContext<TerminalShell>({
+  bufferedContent: "",
+  temporaryContent: "",
+  setBufferedContent: (node: React.ReactNode | React.SetStateAction<React.ReactNode>) => {},
+  setTemporaryContent: (node: React.ReactNode | React.SetStateAction<React.ReactNode>) => {},
+  appendCommandToHistory: () => {},
+  getNextCommand: () => "",
+  getPreviousCommand: () => ""
+});
 
 export const TerminalContextProvider = (props: any) => {
   const { children } = props;
   const [bufferedContent, setBufferedContent] = React.useState("");
+  const [temporaryContent, setTemporaryContent] = React.useState("");
   const [commandsHistory, setCommandsHistory] = React.useState([]);
   const [historyPointer, setHistoryPointer] = React.useState(null);
 
@@ -51,6 +70,8 @@ export const TerminalContextProvider = (props: any) => {
     <TerminalContext.Provider
       value={{
         bufferedContent,
+        temporaryContent,
+        setTemporaryContent,
         setBufferedContent,
         appendCommandToHistory,
         getPreviousCommand,

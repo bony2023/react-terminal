@@ -115,7 +115,7 @@ export const useBufferedContent = (
   errorMessage: any,
   defaultHandler: any
 ) => {
-  const { bufferedContent, setBufferedContent } = React.useContext(TerminalContext);
+  const { bufferedContent, setBufferedContent, setTemporaryContent } = React.useContext(TerminalContext);
   const style = React.useContext(StyleContext);
   const themeStyles = React.useContext(ThemeContext);
 
@@ -142,13 +142,15 @@ export const useBufferedContent = (
 
         const waiting = (
           <>
-            {bufferedContent}
             <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
             <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
             <br />
           </>
         );
-        setBufferedContent(waiting);
+        setBufferedContent((previous: React.ReactNode) => (<>
+          {previous}
+          {waiting}
+        </>));
         setCurrentText("");
         setCaretPosition(0);
         setBeforeCaretText("");
@@ -173,15 +175,10 @@ export const useBufferedContent = (
             output = errorMessage;
           }
         }
-
         const nextBufferedContent = (
           <>
-            {bufferedContent}
-            <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
-            <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
             {output ? (
               <span>
-                <br />
                 {output}
               </span>
             ) : null}
@@ -189,7 +186,11 @@ export const useBufferedContent = (
           </>
         );
 
-        setBufferedContent(nextBufferedContent);
+        setBufferedContent((previousBufferedContent: React.ReactNode) => (<>
+          {previousBufferedContent}
+          {nextBufferedContent}
+        </>));
+        setTemporaryContent("");
         setProcessCurrentLine(false);
       };
 
@@ -211,7 +212,7 @@ export const useCurrentLine = (
 ) => {
   const style = React.useContext(StyleContext);
   const themeStyles = React.useContext(ThemeContext);
-  const { appendCommandToHistory } = React.useContext(TerminalContext);
+  const { appendCommandToHistory, temporaryContent } = React.useContext(TerminalContext);
   const mobileInputRef = React.useRef(null);
   const [editorInput, setEditorInput] = React.useState("");
   const [processCurrentLine, setProcessCurrentLine] = React.useState(false);
@@ -285,6 +286,7 @@ export const useCurrentLine = (
             <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}
+        <span className={style.preWhiteSpace}>{temporaryContent}</span>
       </div>
     </>
   );
