@@ -1,6 +1,7 @@
+import React from "react";
 import { ReactTerminal, TerminalContext } from "react-terminal";
 
-function Terminal(props) {
+function Terminal() {
     const { setBufferedContent, setTemporaryContent } = React.useState(TerminalContext);
     const [theme, setTheme] = React.useState("light");
     const [controlBar, setControlBar] = React.useState(true);
@@ -66,41 +67,41 @@ function Terminal(props) {
       wait: async (timeout) => {
         timeout = parseInt(timeout);
         await Promise.all(
-            new Array(Math.floor(time / 250)).fill({}).map((value, index) => new Promise((resolve) => {
-                const timer = setTimeout(() => {
-                    setTemporaryContent((previous) => (<>
-                        {previous}
-                        <span>
-                            Waiting...
-                        </span>
-                        <br/>
-                    </>));
-                    clearTimeout(timer);
-                    resolve(void 0);
-                }, index * 250);
-            })
+          new Array(Math.floor(timeout / 250)).fill({}).map((value, index) => new Promise((resolve) => {
+            const timer = setTimeout(() => {
+              setTemporaryContent((previous) => (<>
+                {previous}
+                <span>
+                    Waiting...
+                </span>
+                <br/>
+              </>));
+              clearTimeout(timer);
+              resolve(void 0);
+            }, index * 250);
+        })
         ));
         return 'over!';
-    },
+      },
 
-    count_to: async (nb) => {
+      count_to: async (nb) => {
         nb = parseInt(nb);
         await Promise.all(
-            new Array(nb).fill({}).map((value, index) => new Promise((resolve) => {
-                const timer = setTimeout(() => {
-                    setBufferedContent((previous) => (<>
-                        {previous}
-                        <span>
-                            {index + 1}
-                        </span>
-                        {index + 1 < nb ? <br/> : ''}
-                    </>));
-                    clearTimeout(timer);
-                    resolve(void 0);
-                }, index * 250);
-            }))
+          new Array(nb).fill({}).map((value, index) => new Promise((resolve) => {
+            const timer = setTimeout(() => {
+              setBufferedContent((previous) => (<>
+                {previous}
+                <span>
+                    {index + 1}
+                </span>
+                {index + 1 < nb ? <br/> : ''}
+              </>));
+              clearTimeout(timer);
+              resolve(void 0);
+            }, index * 250);
+          }))
         );
-    }
+      }
     };
   
     const welcomeMessage = (
@@ -110,16 +111,16 @@ function Terminal(props) {
     );
 
     return (<ReactTerminal
-        prompt={prompt}
-        theme={theme}
-        showControlBar={controlBar}
-        showControlButtons={controlButtons}
-        welcomeMessage={welcomeMessage}
-        commands={commands}
-        defaultHandler={(command, commandArguments) => {
-          return `${command} passed on to default handler with arguments ${commandArguments}`;
-        }}
-      />);
+      prompt={prompt}
+      theme={theme}
+      showControlBar={controlBar}
+      showControlButtons={controlButtons}
+      welcomeMessage={welcomeMessage}
+      commands={commands}
+      defaultHandler={(command, commandArguments) => {
+        return `${command} passed on to default handler with arguments ${commandArguments}`;
+      }}
+    />);
 }
 
 export default Terminal;

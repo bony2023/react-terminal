@@ -19,5 +19,6 @@ export const TerminalContext = _TerminalContext;
 
 export default {
   ReactTerminal,
-  TerminalContextProvider
+  TerminalContextProvider,
+  TerminalContext
 };
