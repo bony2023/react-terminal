@@ -239,7 +239,7 @@ export const useCurrentLine = (
   );
 
   React.useEffect(() => {
-    if(wrapperRef !== null) {
+    if(wrapperRef.current !== null && mobileInputRef.current !== null) {
       wrapperRef.current.onclick = () => {
         mobileInputRef.current.focus();
       }
