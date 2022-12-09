@@ -206,7 +206,8 @@ export const useCurrentLine = (
   commands: any,
   errorMessage: any,
   enableInput: boolean,
-  defaultHandler: any
+  defaultHandler: any,
+  wrapperRef: any
 ) => {
   const style = React.useContext(StyleContext);
   const themeStyles = React.useContext(ThemeContext);
@@ -223,10 +224,6 @@ export const useCurrentLine = (
       if (!isMobile) {
         return;
       }
-
-      if (consoleFocused) {
-        mobileInputRef.current.focus();
-      }
     },
     [consoleFocused]
   );
@@ -240,6 +237,14 @@ export const useCurrentLine = (
     },
     [processCurrentLine]
   );
+
+  React.useEffect(() => {
+    if(wrapperRef !== null) {
+      wrapperRef.current.onclick = () => {
+        mobileInputRef.current.focus();
+      }
+    }
+  },[])
 
   const mobileInput = isMobile && enableInput? (
     <div className={style.mobileInput}>

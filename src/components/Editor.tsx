@@ -33,9 +33,10 @@ export default function Editor(props: any) {
     consoleFocused,
     prompt,
     commands,
-    errorMessage, 
+    errorMessage,
     enableInput,
-    defaultHandler
+    defaultHandler,
+    wrapperRef
   );
 
   return (
