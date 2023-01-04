@@ -47,7 +47,6 @@ export default function Terminal(props: any) {
     enableInput={enableInput}
     showControlBar={showControlBar}
     defaultHandler={defaultHandler}
-    editorStyle={props.editorStyle}
   />
 
   return (
@@ -81,7 +80,6 @@ Terminal.propTypes = {
   welcomeMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
   errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
   defaultHandler: PropTypes.func,
-  editorStyle: PropTypes.any
 };
 
 Terminal.defaultProps = {
@@ -96,5 +94,4 @@ Terminal.defaultProps = {
   welcomeMessage: "",
   errorMessage: "not found!",
   defaultHandler: null,
-  editorStyle: {}
 };
