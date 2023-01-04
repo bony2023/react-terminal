@@ -3,6 +3,7 @@
 exports[`Editor Editor renders correctly 1`] = `
 <div
   className="editor curvedTop null"
+  id="terminalEditor"
   style={
     {
       "background": "#fdf6e4",

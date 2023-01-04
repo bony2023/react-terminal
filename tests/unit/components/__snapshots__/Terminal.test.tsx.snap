@@ -17,6 +17,7 @@ exports[`Terminal Terminal doesn't render control bar 1`] = `
   >
     <div
       className="editor curvedTop null"
+      id="terminalEditor"
       style={
         {
           "background": "#fdf6e4",
@@ -79,6 +80,7 @@ exports[`Terminal Terminal doesn't render control buttons 1`] = `
     />
     <div
       className="editor null editorWithTopBar"
+      id="terminalEditor"
       style={
         {
           "background": "#fdf6e4",
@@ -151,6 +153,7 @@ exports[`Terminal Terminal renders correctly 1`] = `
     </div>
     <div
       className="editor null editorWithTopBar"
+      id="terminalEditor"
       style={
         {
           "background": "#fdf6e4",

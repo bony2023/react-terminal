@@ -137,7 +137,7 @@ export const useBufferedContent = (
           setCaretPosition(0);
           setBeforeCaretText("");
           setAfterCaretText("");
-          return 
+          return
         }
 
         const waiting = (
@@ -153,7 +153,7 @@ export const useBufferedContent = (
         setCaretPosition(0);
         setBeforeCaretText("");
         setAfterCaretText("");
-        
+
         if (text) {
           const commandArguments = rest.join(" ");
 
@@ -257,6 +257,7 @@ export const useCurrentLine = (
         value={editorInput}
         onChange={(event) => setEditorInput(event.target.value)}
         ref={mobileInputRef}
+        data-testid={"editor-input"}
       />
     </div>
   ) : null;
@@ -268,7 +269,7 @@ export const useCurrentLine = (
       <div className={style.lineText}>
         <span className={style.preWhiteSpace}>{beforeCaretText}</span>
         {consoleFocused && caret ? (  //if caret isn't true, caret won't be displayed
-          <span className={style.caret}> 
+          <span className={style.caret}>
             <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}
