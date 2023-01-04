@@ -1,8 +1,10 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, getByTestId } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import { ReactTerminal, TerminalContextProvider } from "../../../src";
+import '@testing-library/jest-dom'
+import * as reactDeviceDetect from 'react-device-detect';
 
 describe('ReactTerminal', () => {
   test('renders ReactTerminal component', () => {
@@ -293,6 +295,38 @@ describe('ReactTerminal', () => {
     });
     expect(terminalContainer.textContent).toContain('default command handler triggered');
   });
+});
+
+test("mobile editor is not focused when on desktop", async () => {
+  Object.defineProperty(reactDeviceDetect, "isMobile", {get: () => false})
+
+  render(
+        <TerminalContextProvider>
+          <ReactTerminal commands={{ whoami: "jackharper" }}
+                         defaultHandler={() => {
+                           return "default command handler triggered";
+                         }}/>
+        </TerminalContextProvider>
+  );
+
+  await userEvent.click(document.getElementById("terminalEditor"));
+  expect(screen.queryByTestId("editor-input")).toBeNull();
+})
+
+test("mobile editor is focused when selected", async () => {
+  Object.defineProperty(reactDeviceDetect, "isMobile", {get: () => true})
+
+  render(
+        <TerminalContextProvider>
+          <ReactTerminal commands={{ whoami: "jackharper" }}
+                         defaultHandler={() => {
+                           return "default command handler triggered";
+                         }}/>
+        </TerminalContextProvider>
+  );
+
+  await userEvent.click(document.getElementById("terminalEditor"));
+  expect(screen.getByTestId("editor-input")).toHaveFocus();
 });
 
 function writeText(container: any, value: string, metaKey = false) {
