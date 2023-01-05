@@ -137,7 +137,7 @@ export const useBufferedContent = (
           setCaretPosition(0);
           setBeforeCaretText("");
           setAfterCaretText("");
-          return 
+          return
         }
 
         const waiting = (
@@ -153,7 +153,7 @@ export const useBufferedContent = (
         setCaretPosition(0);
         setBeforeCaretText("");
         setAfterCaretText("");
-        
+
         if (text) {
           const commandArguments = rest.join(" ");
 
@@ -206,7 +206,8 @@ export const useCurrentLine = (
   commands: any,
   errorMessage: any,
   enableInput: boolean,
-  defaultHandler: any
+  defaultHandler: any,
+  wrapperRef: any
 ) => {
   const style = React.useContext(StyleContext);
   const themeStyles = React.useContext(ThemeContext);
@@ -223,10 +224,6 @@ export const useCurrentLine = (
       if (!isMobile) {
         return;
       }
-
-      if (consoleFocused) {
-        mobileInputRef.current.focus();
-      }
     },
     [consoleFocused]
   );
@@ -241,6 +238,14 @@ export const useCurrentLine = (
     [processCurrentLine]
   );
 
+  React.useEffect(() => {
+    if(wrapperRef.current !== null && mobileInputRef.current !== null) {
+      wrapperRef.current.onclick = () => {
+        mobileInputRef.current.focus();
+      }
+    }
+  },[])
+
   const mobileInput = isMobile && enableInput? (
     <div className={style.mobileInput}>
       <input
@@ -252,6 +257,7 @@ export const useCurrentLine = (
         value={editorInput}
         onChange={(event) => setEditorInput(event.target.value)}
         ref={mobileInputRef}
+        data-testid={"editor-input"}
       />
     </div>
   ) : null;
@@ -263,7 +269,7 @@ export const useCurrentLine = (
       <div className={style.lineText}>
         <span className={style.preWhiteSpace}>{beforeCaretText}</span>
         {consoleFocused && caret ? (  //if caret isn't true, caret won't be displayed
-          <span className={style.caret}> 
+          <span className={style.caret}>
             <span className={style.caretAfter} style={{ background: themeStyles.themeColor }} />
           </span>
         ) : null}

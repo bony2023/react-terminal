@@ -33,13 +33,14 @@ export default function Editor(props: any) {
     consoleFocused,
     prompt,
     commands,
-    errorMessage, 
+    errorMessage,
     enableInput,
-    defaultHandler
+    defaultHandler,
+    wrapperRef
   );
 
   return (
-    <div ref={wrapperRef} className={`${style.editor} ${!showControlBar ? style.curvedTop : null} ${showControlBar ? style.editorWithTopBar : null}`} style={{ background: themeStyles.themeBGColor }}>
+    <div id={"terminalEditor"} ref={wrapperRef} className={`${style.editor} ${!showControlBar ? style.curvedTop : null} ${showControlBar ? style.editorWithTopBar : null}`} style={{ background: themeStyles.themeBGColor }}>
       {welcomeMessage}
       {bufferedContent}
       {currentLine}
