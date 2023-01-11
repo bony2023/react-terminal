@@ -180,7 +180,7 @@ export const useBufferedContent = (
             <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
             <span className={`${style.lineText} ${style.preWhiteSpace}`}>{currentText}</span>
             {output ? (
-              <span>
+              <span className={`${style.lineText} ${style.preWhiteSpace}`}>
                 <br />
                 {output}
               </span>
