@@ -7186,12 +7186,12 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-react-device-detect@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-2.2.2.tgz#dbabbce798ec359c83f574c3edb24cf1cca641a5"
-  integrity sha512-zSN1gIAztUekp5qUT/ybHwQ9fmOqVT1psxpSlTn1pe0CO+fnJHKRLOWWac5nKxOxvOpD/w84hk1I+EydrJp7SA==
+react-device-detect@2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-2.1.2.tgz#60abb6fa361ec4cc839469a0c4c3e9b8ea17d6b5"
+  integrity sha512-N42xttwez3ECgu4KpOL2ICesdfoz8NCBfmc1rH9FRYSjH7NmMyANPSrQ3EvAtJyj/6TzJNhrANSO38iXjCB2Ug==
   dependencies:
-    ua-parser-js "^1.0.2"
+    ua-parser-js "^0.7.30"
 
 react-dom@^18.1.0:
   version "18.1.0"
@@ -7281,13 +7281,13 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-terminal@^1.2.8:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/react-terminal/-/react-terminal-1.2.8.tgz#15ee5bac35d690ae8093fb1ea79da82c85ef86f9"
-  integrity sha512-yqUqwtrL9fy9BmHdzabPMd6U2Wy1fVeumlOsOfCqb4XYJW+ktlrqxpGNs3GWa1q3FWylFeC6ALbp3meOcMn3gw==
+react-terminal@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-terminal/-/react-terminal-1.3.1.tgz#7feaaf732b956b806edc1c7c07600983309e4ddc"
+  integrity sha512-lbkrih1be0nlJptZR7uwV6YF8PMuxKJOKhGN+GVuFKp9dY/qpSYF76KMGZZJnWbbxAt5Bkf+aUt4iyy5F8NBdQ==
   dependencies:
     prop-types "^15.7.2"
-    react-device-detect "^2.2.2"
+    react-device-detect "2.1.2"
 
 react@^18.1.0:
   version "18.1.0"
@@ -8334,10 +8334,10 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-ua-parser-js@^1.0.2:
-  version "1.0.33"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-1.0.33.tgz#f21f01233e90e7ed0f059ceab46eb190ff17f8f4"
-  integrity sha512-RqshF7TPTE0XLYAqmjlu5cLLuGdKrNu9O1KLA/qp39QtbZwuzwv1dT46DZSopoUMsYgXpB3Cv8a03FI8b74oFQ==
+ua-parser-js@^0.7.30:
+  version "0.7.33"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.33.tgz#1d04acb4ccef9293df6f70f2c3d22f3030d8b532"
+  integrity sha512-s8ax/CeZdK9R/56Sui0WM6y9OFREJarMRHqLB2EwkovemBxNQ+Bqu8GAsUnVcXKgphb++ghr/B2BZx4mahujPw==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
