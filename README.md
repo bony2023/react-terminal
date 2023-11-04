@@ -77,7 +77,7 @@ The component comes with few in-built themes: `light`, `dark`, `material-light`,
 <ReactTerminal
   commands={commands}
   themes={{
-    my-custom-theme: {
+    "my-custom-theme": {
       themeBGColor: "#272B36",
       themeToolbarColor: "#DBDBDB",
       themeColor: "#FFFEFC",
