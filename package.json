@@ -34,7 +34,7 @@
   "homepage": "https://github.com/bony2023/react-terminal#readme",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^14.1.0",
     "@testing-library/user-event": "^14.2.0",
     "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
