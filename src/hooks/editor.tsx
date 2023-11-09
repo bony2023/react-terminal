@@ -142,7 +142,7 @@ export const useBufferedContent = (
 
         const waiting = (
           <>
-            <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
+            <span style={{ color: themeStyles.themePromptColor }}>{prompt} </span>
             <span>{currentText}</span>
             <br />
           </>
