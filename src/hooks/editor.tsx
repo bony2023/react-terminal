@@ -182,7 +182,6 @@ export const useBufferedContent = (
                 {output}
               </span>
             ) : null}
-            <br />
           </>
         );
 
