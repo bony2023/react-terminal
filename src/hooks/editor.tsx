@@ -105,6 +105,7 @@ export const useEditorInput = (
 export const useBufferedContent = (
   processCurrentLine: any,
   setProcessCurrentLine: any,
+  prompt: string,
   currentText: any,
   setCurrentText: any,
   setCaretPosition: any,
@@ -141,6 +142,7 @@ export const useBufferedContent = (
 
         const waiting = (
           <>
+            <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
             <span>{currentText}</span>
             <br />
           </>
@@ -304,6 +306,7 @@ export const useCurrentLine = (
   useBufferedContent(
     processCurrentLine,
     setProcessCurrentLine,
+    prompt,
     editorInput,
     setEditorInput,
     setCaretPosition,
