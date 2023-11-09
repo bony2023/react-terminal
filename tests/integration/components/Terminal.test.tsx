@@ -1,10 +1,10 @@
-import React from 'react';
 import { render, screen, fireEvent, getByTestId } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
-import { ReactTerminal, TerminalContextProvider } from "../../../src";
 import '@testing-library/jest-dom'
 import * as reactDeviceDetect from 'react-device-detect';
+import React, { useContext } from 'react';
+import { ReactTerminal, TerminalContextProvider, TerminalContext } from "../../../src";
 
 describe('ReactTerminal', () => {
   test('renders ReactTerminal component', () => {
@@ -294,6 +294,59 @@ describe('ReactTerminal', () => {
       writeText(terminalContainer, 'Enter');
     });
     expect(terminalContainer.textContent).toContain('default command handler triggered');
+  });
+
+  test('custom command can write to the buffer', async () => {
+    const CustomTerminal = () => {
+      const { setBufferedContent } = useContext(TerminalContext);
+
+      return (<ReactTerminal commands={{
+        echo: (text: string) => {
+          setBufferedContent((previous: React.ReactNode) => (<>
+            {previous}
+            {text}
+          </>))
+        }
+      }}/>);
+    }
+    render(
+      <TerminalContextProvider>
+        <CustomTerminal />
+      </TerminalContextProvider>
+    );
+
+    let terminalContainer = screen.getByTestId('terminal');
+    writeText(terminalContainer, 'echo hello world!');
+    await act(async () => {
+      writeText(terminalContainer, 'Enter');
+    });
+
+    expect(terminalContainer.textContent).toContain('hello world!');
+  });
+
+  test('custom command can write temporary content', async () => {
+    const CustomTerminal = () => {
+      const { setTemporaryContent } = useContext(TerminalContext);
+
+      return (<ReactTerminal commands={{
+        wait: () => {
+          setTemporaryContent('Hold on...');
+
+          return 'Over!';
+        }
+      }}/>);
+    }
+    render(
+      <TerminalContextProvider>
+        <CustomTerminal />
+      </TerminalContextProvider>
+    );
+
+    let terminalContainer = screen.getByTestId('terminal');
+    writeText(terminalContainer, 'wait');
+    writeText(terminalContainer, 'Enter');
+
+    expect(terminalContainer.textContent).toContain('Hold on...');
   });
 });
 
