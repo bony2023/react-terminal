@@ -180,6 +180,7 @@ export const useBufferedContent = (
             {output ? (
               <span>
                 {output}
+                <br/>
               </span>
             ) : null}
           </>
