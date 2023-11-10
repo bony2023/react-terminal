@@ -103,6 +103,6 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react-device-detect": "2.1.2"
+    "react-device-detect": "2.2.3"
   }
 }
