@@ -938,9 +938,9 @@
     "@types/enzyme" "*"
 
 "@types/enzyme@*", "@types/enzyme@^3.10.4":
-  version "3.10.16"
-  resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.10.16.tgz#100c49093f694545fc903266b2eb410df08859a9"
-  integrity sha512-17uMdJjSKjvdn/MhO/G2lRNPZGvJxFpvgONrsRoS1+khtJ6UcnCwC9v3gk2UqPyAkMZb6a1VYxScc/vOgkDl9w==
+  version "3.10.17"
+  resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.10.17.tgz#085f29fdb3a24f72cf3e0e14490b6f233254e596"
+  integrity sha512-4+CMYPx8cToXnF1WxUdjKCZFSrslJqkIW5N5D27stzJsnJmw4dWbOcmhPERJpe+CufV0LanV7BgTWuj63Z2/Vg==
   dependencies:
     "@types/cheerio" "*"
     "@types/react" "^16"
