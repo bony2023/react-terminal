@@ -148,7 +148,6 @@ export const useBufferedContent = (
               KhtmlUserSelect: "none",
               MozUserSelect: "none",
               msUserSelect: "none",
-              OUserSelect: "none",
               userSelect: "none",
           }}>{prompt} </span>
             <span>{currentText}</span>
@@ -280,7 +279,6 @@ export const useCurrentLine = (
         KhtmlUserSelect: "none",
         MozUserSelect: "none",
         msUserSelect: "none",
-        OUserSelect: "none",
         userSelect: "none",
       }}>{prompt}</span>
       <div className={style.lineText}>
