@@ -142,7 +142,14 @@ export const useBufferedContent = (
 
         const waiting = (
           <>
-            <span style={{ color: themeStyles.themePromptColor }}>{prompt} </span>
+            <span style={{
+              color: themeStyles.themePromptColor,
+              WebkitUserSelect: "none",
+              KhtmlUserSelect: "none",
+              MozUserSelect: "none",
+              msUserSelect: "none",
+              userSelect: "none",
+          }}>{prompt} </span>
             <span>{currentText}</span>
             <br />
           </>
@@ -266,7 +273,14 @@ export const useCurrentLine = (
   const currentLine = !processCurrentLine ? (
     <>
       {mobileInput}
-      <span style={{ color: themeStyles.themePromptColor }}>{prompt}</span>
+      <span style={{
+        color: themeStyles.themePromptColor,
+        WebkitUserSelect: "none",
+        KhtmlUserSelect: "none",
+        MozUserSelect: "none",
+        msUserSelect: "none",
+        userSelect: "none",
+      }}>{prompt}</span>
       <div className={style.lineText}>
         <span className={style.preWhiteSpace}>{beforeCaretText}</span>
         {consoleFocused && caret ? (  //if caret isn't true, caret won't be displayed
