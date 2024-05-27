@@ -16,7 +16,8 @@ export const useEditorInput = (
   setCaretPosition: any,
   setBeforeCaretText: any,
   setAfterCaretText: any,
-  enableInput: boolean
+  enableInput: boolean,
+  commands: any
 ) => {
   const { getPreviousCommand, getNextCommand } = React.useContext(TerminalContext);
 
@@ -31,7 +32,7 @@ export const useEditorInput = (
     event.preventDefault();
 
     const eventKey = event.key;
-
+    
     if (eventKey === "Enter") {
       setProcessCurrentLine(true);
       return;
@@ -56,6 +57,13 @@ export const useEditorInput = (
     } else if (eventKey === "ArrowRight") {
       if (caretPosition < editorInput.length) setCaretPosition(caretPosition + 1);
       nextInput = editorInput
+    } else if ( eventKey === "Tab"){
+      const command = Object.keys(commands).find((command : string)=> {
+        return command.substring(0,editorInput.length) === editorInput
+      });
+      setEditorInput(command);
+      setCaretPosition(command.length)
+      return
     } else if ((event.metaKey || event.ctrlKey) && eventKey.toLowerCase() === "v") {
       navigator.clipboard.readText()
       .then(pastedText => {
@@ -300,7 +308,8 @@ export const useCurrentLine = (
     setCaretPosition,
     setBeforeCaretText,
     setAfterCaretText,
-    enableInput
+    enableInput,
+    commands
   );
 
   useBufferedContent(
