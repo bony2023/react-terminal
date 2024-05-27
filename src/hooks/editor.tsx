@@ -59,9 +59,11 @@ export const useEditorInput = (
       nextInput = editorInput
     } else if ( eventKey === "Tab"){
       const command = Object.keys(commands).find((command : string)=>command.substring(0,editorInput.length) === editorInput);
-      setEditorInput(command);
-      setCaretPosition(command.length)
-      return
+      if(command){
+        setEditorInput(command);
+        setCaretPosition(command.length)
+        return
+      }
     } else if ((event.metaKey || event.ctrlKey) && eventKey.toLowerCase() === "v") {
       navigator.clipboard.readText()
       .then(pastedText => {
