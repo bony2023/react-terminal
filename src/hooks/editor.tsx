@@ -58,9 +58,7 @@ export const useEditorInput = (
       if (caretPosition < editorInput.length) setCaretPosition(caretPosition + 1);
       nextInput = editorInput
     } else if ( eventKey === "Tab"){
-      const command = Object.keys(commands).find((command : string)=> {
-        return command.substring(0,editorInput.length) === editorInput
-      });
+      const command = Object.keys(commands).find((command : string)=>command.substring(0,editorInput.length) === editorInput);
       setEditorInput(command);
       setCaretPosition(command.length)
       return
