@@ -10,7 +10,7 @@ describe('ReactTerminal', () => {
   test('renders ReactTerminal component', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal/>
+          <ReactTerminal />
       </TerminalContextProvider>
     );
   });
@@ -163,6 +163,18 @@ describe('ReactTerminal', () => {
     writeText(terminalContainer, 'ArrowDown');
     expect(screen.getAllByText("whoami").length).toBe(1);
   });
+
+  test("tab autocomplete command", ()=>{
+    render(
+      <TerminalContextProvider>
+          <ReactTerminal commands={{ whoami: 'jackharper' }}/>
+      </TerminalContextProvider>
+    );
+    const terminalContainer = screen.getByTestId('terminal')
+    writeText(terminalContainer, 'who');
+    writeText(terminalContainer, 'Tab');
+    expect(screen.getAllByText("whoami").length).toBe(1);
+  })
 
   test('arrow left/right moves the cursor', () => {
     render(
@@ -382,7 +394,7 @@ test("mobile editor is focused when selected", async () => {
   expect(screen.getByTestId("editor-input")).toHaveFocus();
 });
 
-function writeText(container: any, value: string, metaKey = false) {
+const writeText = function(container: any, value: string, metaKey = false) {
   if (["Enter", "Backspace", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Tab"].includes(value)) {
     fireEvent.keyDown(container, {
       metaKey: metaKey,
