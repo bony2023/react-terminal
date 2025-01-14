@@ -1,10 +1,10 @@
-import { render, screen, fireEvent, getByTestId } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor, getByTestId } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom'
-import * as reactDeviceDetect from 'react-device-detect';
-import React, { useContext } from 'react';
+import React, { useContext, act } from 'react';
 import { ReactTerminal, TerminalContextProvider, TerminalContext } from "../../../src";
+
+import Utils from '../../../src/common/Utils'
 
 describe('ReactTerminal', () => {
   test('renders ReactTerminal component', () => {
@@ -353,17 +353,17 @@ describe('ReactTerminal', () => {
         <CustomTerminal />
       </TerminalContextProvider>
     );
-
-    let terminalContainer = screen.getByTestId('terminal');
-    writeText(terminalContainer, 'wait');
-    writeText(terminalContainer, 'Enter');
-
-    expect(terminalContainer.textContent).toContain('Hold on...');
+    await waitFor(() => {
+      const terminalContainer = screen.getByTestId('terminal');
+      writeText(terminalContainer, 'wait');
+      writeText(terminalContainer, 'Enter');
+      expect(terminalContainer.textContent).toContain('Hold on...');
+    });
   });
 });
 
 test("mobile editor is not focused when on desktop", async () => {
-  Object.defineProperty(reactDeviceDetect, "isMobile", {get: () => false})
+  jest.spyOn<any, any>(Utils, 'isMobile').mockReturnValue(false);
 
   render(
         <TerminalContextProvider>
@@ -374,12 +374,12 @@ test("mobile editor is not focused when on desktop", async () => {
         </TerminalContextProvider>
   );
 
-  await userEvent.click(document.getElementById("terminalEditor"));
+  await userEvent.click(document.getElementById("terminalEditor")!);
   expect(screen.queryByTestId("editor-input")).toBeNull();
 })
 
 test("mobile editor is focused when selected", async () => {
-  Object.defineProperty(reactDeviceDetect, "isMobile", {get: () => true})
+  jest.spyOn<any, any>(Utils, 'isMobile').mockReturnValue(true);
 
   render(
         <TerminalContextProvider>
@@ -390,9 +390,10 @@ test("mobile editor is focused when selected", async () => {
         </TerminalContextProvider>
   );
 
-  await userEvent.click(document.getElementById("terminalEditor"));
+  await userEvent.click(document.getElementById("terminalEditor")!);
   expect(screen.getByTestId("editor-input")).toHaveFocus();
 });
+
 
 const writeText = function(container: any, value: string, metaKey = false) {
   if (["Enter", "Backspace", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Tab"].includes(value)) {
