@@ -1,33 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Editor Editor renders correctly 1`] = `
-<div
-  className="editor curvedTop null"
-  id="terminalEditor"
-  style={
-    {
-      "background": "#fdf6e4",
-    }
-  }
->
-  <span
-    style={
-      {
-        "color": "#a917a8",
-      }
-    }
-  >
-    $
-  </span>
+<div>
   <div
-    className="lineText"
+    class="editor curvedTop null"
+    id="terminalEditor"
+    style="background: rgb(253, 246, 228);"
   >
     <span
-      className="preWhiteSpace"
-    />
-    <span
-      className="preWhiteSpace"
-    />
+      style="color: rgb(169, 23, 168);"
+    >
+      $
+    </span>
+    <div
+      class="lineText"
+    >
+      <span
+        class="preWhiteSpace"
+      />
+      <span
+        class="preWhiteSpace"
+      />
+    </div>
   </div>
 </div>
 `;

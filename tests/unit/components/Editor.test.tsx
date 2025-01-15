@@ -1,5 +1,5 @@
 import * as React from "react";
-import renderer from "react-test-renderer";
+import { render } from "@testing-library/react"
 import ContextProvider from "../../../src/contexts";
 import { TerminalContextProvider } from "../../../src/contexts/TerminalContext";
 import Editor from "../../../src/components/Editor";
@@ -23,6 +23,7 @@ describe("Editor", () => {
       errorMessage: ""
     };
 
-    expect(renderer.create(renderWrapper()).toJSON()).toMatchSnapshot();
+    const { container } = render(renderWrapper())
+    expect(container).toMatchSnapshot();
   });
 });

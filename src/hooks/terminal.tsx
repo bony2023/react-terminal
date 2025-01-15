@@ -1,11 +1,12 @@
 import * as React from "react";
-import { isMobile } from "react-device-detect";
+
+import Utils from "../common/Utils";
 
 export const useClickOutsideEvent = (ref: any, clickedInside: boolean, setClickedInside: any) => {
   const handleClickOutside = (event: any) => {
     if (ref.current && !ref.current.contains(event.target)) {
       setClickedInside(false);
-    } else if (isMobile) {
+    } else if (Utils.isMobile()) {
         setClickedInside(!clickedInside);
     } else {
       setClickedInside(true);
