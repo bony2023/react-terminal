@@ -29,5 +29,4 @@ jobs:
         with:
           node-version: '22.x'
       - run: yarn install
-      - run: ./node_modules/.bin/npm-install-peers
       - run: yarn test && ./node_modules/.bin/codecov -t ${{secrets.CODECOV_REPO_TOKEN}}
