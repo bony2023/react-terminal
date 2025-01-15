@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: 18.17.0
+          node-version: '22.x'
       - name: Cache node modules
         uses: actions/cache@v1
         with:
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: 18.17.0
+          node-version: '22.x'
       - run: yarn install
       - run: ./node_modules/.bin/npm-install-peers
       - run: yarn test && ./node_modules/.bin/codecov -t ${{secrets.CODECOV_REPO_TOKEN}}
