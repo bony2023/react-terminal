@@ -6,12 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18.17.0
+          node-version: 22
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.npm 
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
@@ -24,10 +24,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18.17.0
+          node-version: 22
       - run: yarn install
-      - run: ./node_modules/.bin/npm-install-peers
-      - run: yarn test && ./node_modules/.bin/codecov -t ${{secrets.CODECOV_REPO_TOKEN}}
+      - run: yarn test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_REPO_TOKEN }}

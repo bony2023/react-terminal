@@ -1,5 +1,4 @@
 import * as React from "react";
-import { isMobile } from "react-device-detect";
 
 import { StyleContext } from "../contexts/StyleContext";
 import { ThemeContext } from "../contexts/ThemeContext";
@@ -230,7 +229,7 @@ export const useCurrentLine = (
 
   React.useEffect(
     () => {
-      if (!isMobile) {
+      if (!Utils.isMobile()) {
         return;
       }
     },
@@ -255,7 +254,7 @@ export const useCurrentLine = (
     }
   },[])
 
-  const mobileInput = isMobile && enableInput? (
+  const mobileInput = Utils.isMobile() && enableInput? (
     <div className={style.mobileInput}>
       <input
         type="text"
