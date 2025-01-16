@@ -29,4 +29,8 @@ jobs:
         with:
           node-version: 22
       - run: yarn install
-      - run: yarn test && ./node_modules/.bin/codecov -t ${{secrets.CODECOV_REPO_TOKEN}}
+      - run: yarn test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_REPO_TOKEN }}
