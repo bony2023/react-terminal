@@ -21,8 +21,8 @@
 
 ![Terminal png](https://react-terminal.sirv.com/static/terminal-dracula.png)
 
-## Looking for Contributors
-Due to time restrictions, I am not actively maintenaing this library and looking for contributors to help. Feel free to submit your pull requests for any issues or new features, and I'll be happy to review them. Thank you!
+## Looking for Sponsors/Contributors
+While my time is restricted, I'm still committed to this library. To help focus development, sponsorship is appreciated for urgent feature requests. I strongly encourage community contributions through pull requests. Feel free to submit them for any issues or new features, and I'll be happy to review them. Thank you!
 
 ## Features
 - Mobile support. 📱
