@@ -43,7 +43,8 @@ yarn add react-terminal
 ```
 
 ## Usage
-```
+
+```tsx
 import { ReactTerminal } from "react-terminal";
 
 function App(props) {
@@ -62,7 +63,8 @@ function App(props) {
 ```
 
 Also make sure to wrap the main mountpoint around the `TerminalContextProvider`. This retains the state even when the component is unmounted and then mounted back:
-```
+
+```tsx
 import { TerminalContextProvider } from "react-terminal";
 
 ReactDOM.render(
@@ -76,7 +78,7 @@ ReactDOM.render(
 ## Creating custom themes
 The component comes with few in-built themes: `light`, `dark`, `material-light`, `material-dark`, `material-ocean`, `matrix` and `dracula`. You can also create custom themes by passing `themes` parameter in props, as follows:
 
-```
+```tsx
 <ReactTerminal
   commands={commands}
   themes={{
